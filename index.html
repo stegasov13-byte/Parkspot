@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- ParkSpot Owner Control Dashboard V3.51.0 HF13 · Director Headroom + Owner-safe AI Errors -->
-<html> 
+<!-- ParkSpot Owner Control Dashboard V3.51.0 HF14 · GitHub Pages + One-click Ads execution -->
+<html>
 <head>
   <base target="_top">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -527,6 +527,80 @@
 
 
     .exec-tech{margin-top:10px;border-top:1px solid #e2e8f0;padding-top:8px}.exec-tech summary{cursor:pointer;font-weight:750;color:#64748b}.exec-tech[open] summary{margin-bottom:8px}.exec-row{overflow:hidden}.approved-note-actions,.button-row{min-width:0}.approved-done,.btn.approve{max-width:100%;white-space:normal;overflow-wrap:anywhere}.execution-preview-item,.execution-preview-line,.exec-row-meta{overflow-wrap:anywhere;word-break:normal}
+
+
+    /* HF17 — premium owner UX, KI Chat and clearer Forward Demand */
+    .why-inline{display:none!important} /* legacy WHY remains available in history/backend, but no longer competes with KI Chat */
+    button{transition:transform .14s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease}
+    button:not(:disabled):active{transform:translateY(1px) scale(.992)}
+    .btn.primary,.ki-send-btn{box-shadow:0 8px 20px rgba(37,99,235,.18)}
+    .owner-status-card{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:12px;align-items:center;border:1px solid #dbeafe;border-radius:18px;background:linear-gradient(135deg,#f8fbff,#fff);padding:13px 14px;margin-bottom:12px;box-shadow:0 10px 26px rgba(15,23,42,.045)}
+    .owner-status-card.green{border-color:#bbf7d0;background:linear-gradient(135deg,#f0fdf4,#fff)}.owner-status-card.yellow{border-color:#fed7aa;background:linear-gradient(135deg,#fff7ed,#fff)}.owner-status-card.red{border-color:#fecaca;background:linear-gradient(135deg,#fef2f2,#fff)}.owner-status-card.blue{border-color:#bfdbfe;background:linear-gradient(135deg,#eff6ff,#fff)}
+    .owner-status-icon{width:42px;height:42px;border-radius:13px;background:#fff;display:grid;place-items:center;font-size:19px;box-shadow:inset 0 0 0 1px rgba(148,163,184,.22)}
+    .owner-status-title{font-size:16px;font-weight:900;letter-spacing:-.25px}.owner-status-text{font-size:10.8px;line-height:1.4;color:#64748b;margin-top:2px}.owner-status-meta{font-size:9.5px;color:#64748b;text-align:right;line-height:1.35;max-width:120px}
+    .ki-hero-card{position:relative;overflow:hidden;border-color:#dbeafe;background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%)}
+    .ki-hero-card:before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,#2563eb,#7c3aed)}
+    .ki-hero-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+    .ki-brand-line{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:900;color:#1e40af;text-transform:uppercase;letter-spacing:.08em}
+    .ki-orb{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#dbeafe,#ede9fe);color:#4338ca;font-size:15px;box-shadow:inset 0 0 0 1px rgba(99,102,241,.1)}
+    .ki-status-title{font-size:22px;font-weight:900;letter-spacing:-.55px;margin-top:10px;line-height:1.12}
+    .ki-status-meta{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.45}
+    .ki-error{display:none;margin-top:11px;padding:10px 12px;border-radius:12px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:11px;line-height:1.45}
+    .ki-summary-grid{display:grid;gap:8px;margin-top:14px}
+    .ki-summary-row{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start;padding:11px 12px;border:1px solid var(--line);border-radius:14px;background:#fff}
+    .ki-summary-icon{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#f1f5f9;font-size:13px}
+    .ki-summary-label{font-size:10px;font-weight:900;color:#64748b;text-transform:uppercase;letter-spacing:.055em}
+    .ki-summary-text{font-size:12.5px;font-weight:720;color:#1e293b;line-height:1.5;margin-top:3px}
+    .ki-source-strip{display:grid;gap:3px;margin-top:11px;padding-top:10px;border-top:1px solid #e2e8f0;font-size:10.5px;color:#64748b;line-height:1.45}
+
+    .ki-chat-card{border-color:#dbeafe;background:linear-gradient(180deg,#fbfdff 0%,#fff 100%)}
+    .ki-chat-head{display:flex;align-items:flex-start;gap:11px}
+    .ki-chat-title{font-size:17px;font-weight:900;letter-spacing:-.25px}
+    .ki-chat-sub{font-size:11.5px;color:var(--muted);line-height:1.45;margin-top:3px}
+    .ki-chat-suggestions{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;margin-top:12px;padding-bottom:2px}.ki-chat-suggestions::-webkit-scrollbar{display:none}
+    .ki-chip{flex:0 0 auto;border:1px solid #dbeafe;background:#fff;color:#1d4ed8;border-radius:999px;padding:8px 11px;font-size:10.5px;font-weight:820;white-space:nowrap;cursor:pointer}
+    .ki-thread{display:grid;gap:9px;margin-top:14px;max-height:480px;overflow:auto;padding-right:2px}
+    .ki-message{max-width:92%;padding:10px 12px;border-radius:15px;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+    .ki-message.user{justify-self:end;background:#0f172a;color:#fff;border-bottom-right-radius:5px}
+    .ki-message.assistant{justify-self:start;background:#f1f5f9;color:#1e293b;border-bottom-left-radius:5px}
+    .ki-message.system{justify-self:stretch;max-width:none;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412}
+    .ki-message-meta{font-size:9.5px;opacity:.68;margin-top:5px}
+    .ki-chat-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+    .ki-action-btn{border:1px solid #cbd5e1;background:#fff;color:#334155;border-radius:10px;padding:7px 9px;font-size:10px;font-weight:850;cursor:pointer}
+    .ki-action-btn.primary{border-color:#bfdbfe;background:#eff6ff;color:#1d4ed8}
+    .ki-chat-compose{display:grid;grid-template-columns:minmax(0,1fr) 48px;gap:8px;align-items:end;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+    .ki-chat-input{width:100%;min-height:48px;max-height:130px;border:1px solid #cbd5e1;border-radius:14px;background:#fff;color:var(--ink);padding:12px 13px;font-family:inherit;font-size:13px;line-height:1.4;resize:vertical;outline:none;box-shadow:inset 0 1px 2px rgba(15,23,42,.03)}
+    .ki-chat-input:focus{border-color:#93c5fd;box-shadow:0 0 0 3px rgba(59,130,246,.08)}
+    .ki-send-btn{width:48px;height:48px;border:0;border-radius:14px;background:#2563eb;color:#fff;font-size:18px;font-weight:900;cursor:pointer}
+    .ki-send-btn:disabled{opacity:.45;cursor:default;box-shadow:none}
+    .ki-chat-note{font-size:10px;color:#64748b;line-height:1.4;margin-top:8px}
+    .ki-archive{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+    .ki-archive summary{cursor:pointer;font-size:11px;font-weight:850;color:#64748b;list-style:none}.ki-archive summary::-webkit-details-marker{display:none}
+    .ki-archive-list{display:grid;gap:7px;margin-top:9px}
+    .ki-archive-item{padding:9px 10px;border:1px solid var(--line);border-radius:11px;background:#fff;font-size:10.5px;color:#475569;line-height:1.4}
+    .ki-archive-open{margin-top:6px;border:0;background:transparent;color:#2563eb;font-size:10px;font-weight:850;padding:0;cursor:pointer}
+
+    .forward-card{position:relative;background:#fff;overflow:hidden;padding:13px}
+    .forward-card-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .forward-card-title{font-size:14px;font-weight:900;color:#0f172a}
+    .forward-status{font-size:9px;font-weight:900;padding:5px 7px;border-radius:999px;background:#f1f5f9;color:#475569;white-space:nowrap}
+    .forward-status.action{background:#fff7ed;color:#9a3412}.forward-status.warning{background:#fff7ed;color:#b45309}.forward-status.ok{background:#ecfdf3;color:#166534}.forward-status.watch{background:#eff6ff;color:#1d4ed8}
+    .forward-attainment{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:10px}
+    .forward-attainment strong{font-size:29px;line-height:1;margin:0;letter-spacing:-.8px}
+    .forward-attainment small{font-size:9.5px;color:var(--muted);font-weight:750;text-align:right;line-height:1.3}
+    .forward-progress{height:7px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-top:8px}
+    .forward-progress i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#2563eb,#60a5fa)}
+    .forward-card-main{font-size:10.5px;color:#475569;line-height:1.45;margin-top:8px}
+    .forward-details{margin-top:8px;font-size:10px;color:#64748b}.forward-details summary{cursor:pointer;font-weight:800;color:#64748b}
+    .forward-summary{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .forward-summary>div{background:#f8fafc;border:1px solid var(--line)}
+    .forward-summary>div b{font-size:22px;letter-spacing:-.4px}
+    .forward-summary>div span{font-size:9.5px}
+    .fd-pace-hero{grid-column:1/-1!important;background:linear-gradient(135deg,#eff6ff,#eef2ff)!important;border-color:#bfdbfe!important;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+    .fd-pace-hero.urgent{background:linear-gradient(135deg,#fff7ed,#fff)!important;border-color:#fed7aa!important}
+    .fd-pace-hero .fd-gap{font-size:10px;color:#64748b;margin-top:3px}
+    @media(max-width:520px){.ki-status-title{font-size:20px}.ki-chat-compose{grid-template-columns:minmax(0,1fr) 46px}.ki-send-btn{width:46px;height:46px}.ki-message{max-width:95%}}
+
 </style>
   <script src="./config.js"></script>
   <script src="./parkspot-api.js"></script>
@@ -545,7 +619,7 @@
     </div>
 
     <div id="aiLiveBanner" class="ai-live-banner">
-      <div class="ai-live-top"><div class="ai-live-title" id="aiLiveTitle">AI läuft gerade</div><span class="pipeline-badge yellow" id="aiLiveBadge">—</span></div>
+      <div class="ai-live-top"><div class="ai-live-title" id="aiLiveTitle">KI läuft gerade</div><span class="pipeline-badge yellow" id="aiLiveBadge">—</span></div>
       <div class="ai-live-text" id="aiLiveText">—</div>
       <div class="ai-live-steps"><span class="ai-live-step" id="aiStep1"></span><span class="ai-live-step" id="aiStep2"></span><span class="ai-live-step" id="aiStep3"></span></div>
     </div>
@@ -555,12 +629,18 @@
         <div class="view-title">Geschäftsübersicht</div>
       </div>
 
+      <section class="owner-status-card" id="ownerStatusCard">
+        <div class="owner-status-icon" id="ownerStatusIcon">✓</div>
+        <div><div class="owner-status-title" id="ownerStatusTitle">Status wird geprüft…</div><div class="owner-status-text" id="ownerStatusText">ParkSpot fasst den wichtigsten Punkt für heute zusammen.</div></div>
+        <div class="owner-status-meta" id="ownerStatusMeta">KI · —</div>
+      </section>
+
       <section class="card" id="creditsCard">
-        <div class="section-title">AI Credits</div>
+        <div class="section-title">KI Credits</div>
         <div class="credit-head"><div class="credit-balance" id="creditBalanceMain">— Credits</div><span class="credit-status" id="creditStatusMain">—</span></div>
         <div class="credit-progress"><div class="credit-progress-fill" id="creditProgressMain"></div></div>
         <div class="credit-meta" id="creditLastMain">Letzte Analyse: —</div>
-        <div class="credit-paused" id="creditPausedMain">AI-Analysen sind vorübergehend pausiert. Bitte Credits für die nächste Analyse aufladen.</div>
+        <div class="credit-paused" id="creditPausedMain">KI-Analysen sind vorübergehend pausiert. Bitte Credits für die nächste Analyse aufladen.</div>
       </section>
 
       <section id="home" class="card hero">
@@ -622,7 +702,7 @@
 
       <section class="card">
         <div class="section-title">Aufmerksamkeit erforderlich</div>
-        <div class="section-sub">Eine gemeinsame Übersicht für Auslastung, Tracking, Daten und AI-Entscheidungen. Wenn alles ruhig ist, wird genau das angezeigt.</div>
+        <div class="section-sub">Eine gemeinsame Übersicht für Auslastung, Tracking, Daten und KI-Entscheidungen. Wenn alles ruhig ist, wird genau das angezeigt.</div>
         <div class="attention-list" id="overviewAttention"><div class="attention-item green">Status wird geprüft…</div></div>
       </section>
 
@@ -649,7 +729,7 @@
             <div class="pipeline-list">
               <div class="pipeline-row"><div class="pipeline-main"><div class="pipeline-title">Buchungen</div><div class="pipeline-text" id="pipeBookingsText">—</div></div><span class="pipeline-badge gray" id="pipeBookingsBadge">—</span></div>
               <div class="pipeline-row"><div class="pipeline-main"><div class="pipeline-title">Google Ads</div><div class="pipeline-text" id="pipeAdsText">—</div></div><span class="pipeline-badge gray" id="pipeAdsBadge">—</span></div>
-              <div class="pipeline-row"><div class="pipeline-main"><div class="pipeline-title">AI-Analyse</div><div class="pipeline-text" id="pipeAiText">—</div></div><span class="pipeline-badge gray" id="pipeAiBadge">—</span></div>
+              <div class="pipeline-row"><div class="pipeline-main"><div class="pipeline-title">KI-Analyse</div><div class="pipeline-text" id="pipeAiText">—</div></div><span class="pipeline-badge gray" id="pipeAiBadge">—</span></div>
             </div>
           </div>
         </details>
@@ -679,10 +759,10 @@
         <div class="section-title">Buchungspipeline · 120 Tage</div>
         <div class="section-sub">Bereits gebuchte Plätze aus allen Kanälen zählen zur Auslastung. Ob der verbleibende Bedarf rechtzeitig geschlossen wird, misst ParkSpot am Zufluss aus Google Ads.</div>
         <div class="forward-summary">
-          <div id="fdRequiredCard"><b id="fdRequired">—</b><span>Erforderliche Google-Ads-Buchungen / Tag</span></div>
-          <div><b id="fdAds1">—</b><span>Google Ads · letzter voller Tag</span></div>
+          <div id="fdRequiredCard" class="fd-pace-hero"><div><b id="fdRequired">—</b><span>Benötigte Google-Ads-Buchungen / Tag</span><div class="fd-gap">Deadline-Pace zum Schließen des aktiven Defizits</div></div><span class="forward-status action">Zieltempo</span></div>
+          <div><b id="fdObserved">—</b><span>Aktuell / Tag · Google Ads 7T</span></div>
+          <div><b id="fdAds1">—</b><span>Letzter voller Google-Ads-Tag</span></div>
           <div><b id="fdAds3">—</b><span>Google Ads / Tag · 3T</span></div>
-          <div><b id="fdObserved">—</b><span>Google Ads / Tag · 7T</span></div>
         </div>
         <div class="forward-grid" id="forwardWindows">
           <div class="forward-card"><b>0–14 Tage</b><strong>—</strong><span>Daten werden geladen</span></div>
@@ -741,17 +821,55 @@
 
     </div>
 
+
     <div id="aiView" class="app-view">
-      <div class="view-intro"><div class="view-title">AI-Berater</div><div class="view-sub">Entscheidungen, Fragen und der fortlaufende Analyseverlauf. Der vollständige Tagesbericht erscheint nur im Protokoll, ohne doppelte Darstellung.</div><div class="jump-row"><button class="jump-btn" onclick="jumpToElement('aiDecisions')">Entscheidungen</button><button class="jump-btn" onclick="jumpToElement('aiHistory')">Protokoll</button><button class="jump-btn" onclick="jumpToElement('aiTeamCard')">AI-Team</button></div></div>
-      <section id="aiDecisions" class="card section-anchor">
-        <div class="section-title">Entscheidungen und Fragen</div><div class="section-sub">Zuerst Aktionen, die auf Ihre Entscheidung warten; danach freigegebene Aktionen und AI-Fragen.</div><div class="inbox-meta" id="inboxMeta">Warteschlange wird geladen…</div><div id="actions"></div><div class="approved-queue" id="approvedQueue"></div>
-        <div class="feedback-box"><div class="feedback-title" id="ownerFeedbackTitle">💬 Feedback an die AI</div><textarea class="general-question" id="generalAiQuestion" placeholder="AI eine Frage zu Werbung, Auslastung oder einer Empfehlung stellen"></textarea><button class="question-btn" onclick="askGeneralQuestion()">❓ AI eine Frage stellen</button><div id="ownerFeedbackPanel" style="margin-top:10px"></div></div>
+      <div class="view-intro">
+        <div class="view-title">KI-Berater</div>
+        <div class="view-sub">Heute sehen Sie zuerst den aktuellen KI-Entscheid, danach offene Aktionen, den KI-Chat und den vollständigen Verlauf.</div>
+        <div class="jump-row"><button class="jump-btn" onclick="jumpToElement('aiToday')">Heute</button><button class="jump-btn" onclick="jumpToElement('aiDecisions')">Entscheidungen</button><button class="jump-btn" onclick="jumpToElement('kiChatCard')">KI-Chat</button><button class="jump-btn" onclick="jumpToElement('aiHistory')">KI-Verlauf</button><button class="jump-btn" onclick="jumpToElement('aiTeamCard')">KI-Team</button></div>
+      </div>
+
+      <section id="aiToday" class="card section-anchor ki-hero-card">
+        <div class="ki-hero-head">
+          <div>
+            <div class="ki-brand-line"><span class="ki-orb">✦</span> ParkSpot KI · heute</div>
+            <div class="ki-status-title" id="aiStatus">Letzter KI-Stand wird geladen…</div>
+            <div class="ki-status-meta" id="aiDate">—</div>
+          </div>
+          <span class="health-pill yellow" id="aiHealthPill">—</span>
+        </div>
+        <div class="ki-error" id="aiError"></div>
+        <div class="ki-summary-grid">
+          <div class="ki-summary-row"><div class="ki-summary-icon">↺</div><div><div class="ki-summary-label">Was hat sich geändert?</div><div class="ki-summary-text" id="aiChangedText">—</div></div></div>
+          <div class="ki-summary-row"><div class="ki-summary-icon">→</div><div><div class="ki-summary-label">Was empfiehlt ParkSpot jetzt?</div><div class="ki-summary-text" id="aiFocusText">—</div></div></div>
+          <div class="ki-summary-row"><div class="ki-summary-icon">◌</div><div><div class="ki-summary-label">Was wird als Nächstes beobachtet?</div><div class="ki-summary-text" id="aiWatchText">—</div></div></div>
+        </div>
+        <div class="ki-source-strip"><div id="aiSourceAds">Google Ads: —</div><div id="aiSourceBookings">Buchungen: —</div></div>
       </section>
+
+      <section id="aiDecisions" class="card section-anchor">
+        <div class="section-title">Entscheidungen</div><div class="section-sub">Hier stehen nur konkrete Aktionen, die auf Ihre Freigabe warten oder bereits freigegeben wurden. Die KI ändert Google Ads nicht direkt.</div><div class="inbox-meta" id="inboxMeta">Warteschlange wird geladen…</div><div id="actions"></div><div class="approved-queue" id="approvedQueue"></div>
+      </section>
+
+      <section id="kiChatCard" class="card section-anchor ki-chat-card">
+        <div class="ki-chat-head"><span class="ki-orb">✦</span><div><div class="ki-chat-title">ParkSpot KI-Chat</div><div class="ki-chat-sub">Fragen Sie in Ihren eigenen Worten. ParkSpot antwortet zuerst aus bereits vorhandenen Buchungs-, Forward-Demand-, Google-Ads- und KI-Daten — ohne neuen kostenpflichtigen Modellaufruf.</div></div></div>
+        <div class="ki-chat-suggestions">
+          <button class="ki-chip" type="button" onclick="fillKiChatSuggestion('Was soll ich heute tun?')">Was soll ich heute tun?</button>
+          <button class="ki-chip" type="button" onclick="fillKiChatSuggestion('Warum sind die Buchungen gesunken?')">Warum sinken die Buchungen?</button>
+          <button class="ki-chip" type="button" onclick="fillKiChatSuggestion('Welche Termine sind aktuell kritisch?')">Welche Termine sind kritisch?</button>
+          <button class="ki-chip" type="button" onclick="fillKiChatSuggestion('Was hat sich seit der letzten KI-Analyse geändert?')">Was hat sich geändert?</button>
+        </div>
+        <div id="ownerFeedbackPanel" class="ki-thread"><div class="small-note">Chat-Verlauf wird geladen…</div></div>
+        <div class="ki-chat-compose"><textarea class="ki-chat-input" id="generalAiQuestion" placeholder="Frage an ParkSpot KI …" onkeydown="kiChatKeyDown(event)"></textarea><button class="ki-send-btn" id="kiChatSendBtn" type="button" onclick="askGeneralQuestion()" aria-label="Frage senden">➤</button></div>
+        <div class="ki-chat-note">Eine KI-Tiefenanalyse mit Sol startet nur nach Ihrer ausdrücklichen Bestätigung. Reine Chat-Antworten aus vorhandenen ParkSpot-Daten verbrauchen keine KI-Credits.</div>
+        <details class="ki-archive" id="legacyWhyArchive" style="display:none"><summary>Frühere Ursachenberichte</summary><div class="ki-archive-list" id="legacyWhyArchiveList"></div></details>
+      </section>
+
       <section id="aiHistory" class="card section-anchor history-inside-ai">
-        <div class="section-title">AI-Protokoll</div><div class="section-sub">Eine abgeschlossene Analyse entspricht einem Eintrag. Zuerst sehen Sie nur Kurzfassung und heutige Aktion; technische Begründung erscheint erst unter „Details anzeigen“.</div><div id="journalContext" class="journal-context">—</div><div id="futureLogNote" class="future-log-note"></div><div id="dailyJournal" class="journal-list"></div><button id="journalMoreBtn" class="journal-more" style="display:none" onclick="showMoreJournal()">Mehr anzeigen</button>
+        <div class="section-title">KI-Verlauf · Changelog</div><div class="section-sub">Eine abgeschlossene tägliche KI-Analyse entspricht einem Eintrag. So bleibt nachvollziehbar, wie sich Einschätzung, Empfehlung und Maßnahmen von Tag zu Tag verändert haben. Details bleiben aufklappbar.</div><div id="journalContext" class="journal-context">—</div><div id="futureLogNote" class="future-log-note"></div><div id="dailyJournal" class="journal-list"></div><button id="journalMoreBtn" class="journal-more" style="display:none" onclick="showMoreJournal()">Mehr anzeigen</button>
       </section>
       <section class="card" id="aiTeamCard">
-        <div class="section-title">AI-Team</div><div class="section-sub">Übersicht der beteiligten Rollen. Das bedeutet nicht, dass für jede Rolle ein separater kostenpflichtiger AI-Aufruf erfolgt.</div>
+        <div class="section-title">KI-Team</div><div class="section-sub">Übersicht der beteiligten Rollen. Das bedeutet nicht, dass für jede Rolle ein separater kostenpflichtiger KI-Aufruf erfolgt.</div>
         <div class="agent-grid" id="agentTeamGrid"><div class="empty">—</div></div>
       </section>
     </div>
@@ -766,7 +884,7 @@
         <div class="owner-settings-grid">
           <div class="owner-settings-field"><label for="ownerEmailInput">Email владельца</label><input class="owner-settings-input" id="ownerEmailInput" type="email" inputmode="email" autocomplete="email" placeholder="name@example.de"></div>
           <label class="owner-settings-toggle"><div><b>Нужно ваше решение</b><span>Новая рекомендация, которая требует подтверждения владельца.</span></div><input id="notifyOwnerDecision" type="checkbox"></label>
-          <label class="owner-settings-toggle"><div><b>Критическая проблема</b><span>Tracking, данные или AI-процесс требуют внимания.</span></div><input id="notifyCriticalProblem" type="checkbox"></label>
+          <label class="owner-settings-toggle"><div><b>Критическая проблема</b><span>Tracking, данные или KI-процесс требуют внимания.</span></div><input id="notifyCriticalProblem" type="checkbox"></label>
           <label class="owner-settings-toggle"><div><b>Безопасное действие выполнено</b><span>ParkSpot сообщает о проверенном автоматическом изменении.</span></div><input id="notifyAutoAction" type="checkbox"></label>
           <label class="owner-settings-toggle"><div><b>Недельный отчёт</b><span>Один компактный отчёт о бизнес-результате за 7 дней.</span></div><input id="notifyWeeklyValue" type="checkbox"></label>
         </div>
@@ -791,7 +909,7 @@
 
         <section class="card" id="ownerContractCard">
           <div class="section-title">Бизнес-границы ParkSpot</div>
-          <div class="section-sub">Жёсткие правила владельца. AI и автоматизация не могут их обходить.</div>
+          <div class="section-sub">Жёсткие правила владельца. KI и автоматизация не могут их обходить.</div>
           <div class="contract-grid">
             <div class="contract-field full"><label>Цель</label><input class="contract-input" id="contractObjective" value="Максимизировать booking revenue с доступной ёмкости при разумных расходах Google Ads" disabled></div>
             <div class="contract-field"><label>Хорошая загрузка · мест</label><input class="contract-input" id="contractComfort" type="number" min="1" max="139" step="1"></div>
@@ -817,7 +935,7 @@
       <section id="serviceLocked" class="card service-lock">
         <div class="service-lock-icon">🔒</div>
         <div class="section-title">Admin / Сервис</div>
-        <div class="section-sub" id="serviceLockText">Введите Admin-PIN. Здесь находятся Booking API, резервный CSV, ручной запуск AI и технические действия.</div>
+        <div class="section-sub" id="serviceLockText">Введите Admin-PIN. Здесь находятся Booking API, резервный CSV, ручной запуск KI и технические действия.</div>
         <input class="pin-input" id="servicePinInput" type="password" inputmode="numeric" autocomplete="one-time-code" maxlength="12" placeholder="••••" aria-label="Admin-PIN">
         <button class="btn primary" style="margin-top:10px" type="button" onclick="unlockService()">Открыть Admin</button>
       </section>
@@ -881,7 +999,7 @@
 
         <section class="card">
           <div class="service-section-title">Фоновая система</div>
-          <div class="section-sub">AI, Booking API и APP_DATA работают на сервере, даже если iPhone закрыт. Телефон только читает готовые данные и отправляет ваши действия.</div>
+          <div class="section-sub">KI, Booking API и APP_DATA работают на сервере, даже если iPhone закрыт. Телефон только читает готовые данные и отправляет ваши действия.</div>
           <div class="api-sync-box">
             <div class="api-sync-top">
               <div class="api-sync-title">Background Orchestrator</div>
@@ -915,7 +1033,7 @@
 
         <section class="card">
           <div class="service-section-title">Google Ads Automation</div>
-          <div class="section-sub">AI не имеет права менять Ads напрямую. Режим, deterministic policy, live BEFORE/AFTER и kill switch проверяются server-side и в Google Ads Script executor.</div>
+          <div class="section-sub">KI не имеет права менять Ads напрямую. Режим, deterministic policy, live BEFORE/AFTER и kill switch проверяются server-side и в Google Ads Script executor.</div>
           <div class="api-sync-box">
             <div class="api-sync-top"><div><div class="api-sync-title">Текущий режим</div><div class="api-sync-text" id="adsExecutionModeText">—</div></div><span class="system-status gray" id="adsExecutionModeBadge">OFF</span></div>
             <div class="api-sync-text" id="adsExecutionTransportText">Executor: —</div>
@@ -938,8 +1056,8 @@
         </section>
 
         <section class="card">
-          <div class="service-section-title">AI вручную</div>
-          <div class="section-sub">Автоматический ежедневный AI можно включать и выключать здесь. Ручной запуск анализа остаётся доступен всегда.</div>
+          <div class="service-section-title">KI вручную</div>
+          <div class="section-sub">Автоматический ежедневный KI можно включать и выключать здесь. Ручной запуск анализа остаётся доступен всегда.</div>
           <div class="api-sync-box" style="margin-top:12px">
             <div class="api-sync-top">
               <div class="api-sync-title">Автоматический AI</div>
@@ -949,7 +1067,7 @@
             <div class="api-sync-actions">
               <button class="mini-btn" id="aiAutoBtn" onclick="toggleAiAuto()">—</button>
             </div>
-            <div class="small-note" style="margin-top:9px">Если авто выключено, система не создаёт новые ежедневные AI-анализы сама. Booking API и APP_DATA продолжают работать; анализ можно запустить вручную кнопкой ниже.</div>
+            <div class="small-note" style="margin-top:9px">Если авто выключено, система не создаёт новые ежедневные KI-анализы сама. Booking API и APP_DATA продолжают работать; анализ можно запустить вручную кнопкой ниже.</div>
           </div>
           <div class="run-status-box" id="serviceAiRunBox" style="margin-top:12px">
             <div class="run-status-top"><div class="run-status-title" id="serviceAiRunTitle">Текущий запуск</div><span class="pipeline-badge gray" id="serviceAiRunBadge">—</span></div>
@@ -959,7 +1077,7 @@
           </div>
           <button class="btn secondary" id="aiResumeBtn" style="margin-top:12px;display:none" onclick="resumeAIFromCheckpoint()">▶️ Продолжить анализ</button>
           <div class="small-note" id="aiResumeHint" style="display:none"></div>
-          <button class="btn secondary" id="aiRunBtn" style="margin-top:12px" onclick="startAI()">🤖 Начать новый AI-анализ</button>
+          <button class="btn secondary" id="aiRunBtn" style="margin-top:12px" onclick="startAI()">🤖 Начать новый KI-анализ</button>
           <div class="small-note">«Продолжить» появляется только когда сервер доказал, что есть безопасный checkpoint. Он создаёт новый run_id и переносит только сохранённые данные/результаты без paid-call markers. «Начать новый» всегда запускает чистый анализ с нуля.</div>
         </section>
 
@@ -969,12 +1087,12 @@
             <div class="system-item">
               <div class="system-item-top"><div class="system-title">Conversion tracking</div><div class="system-status gray" id="measurementBadge">—</div></div>
               <div class="system-text" id="measurementText">—</div>
-              <textarea class="measurement-note" id="measurementNote" placeholder="Заметка для AI (необязательно). Например: 07.09 исправили тег Online-Buchung abgeschlossen; тестовая/реальная бронь прошла."></textarea>
+              <textarea class="measurement-note" id="measurementNote" placeholder="Заметка для KI (необязательно). Например: 07.09 исправили тег Online-Buchung abgeschlossen; тестовая/реальная бронь прошла."></textarea>
               <div class="measurement-actions" id="measurementActions">
                 <button class="mini-btn warn" id="measurementBrokenBtn" onclick="measurementAction('STILL_BROKEN')">🔴 Всё ещё сломано</button>
                 <button class="mini-btn ok" id="measurementFixedBtn" onclick="measurementAction('START_RECOVERY')">🟡 Исправлено — начать проверку</button>
               </div>
-              <div class="measurement-hint" id="measurementHint">После «Исправлено» AI сразу узнает об этом, но доверие станет зелёным только после свежего реального conversion signal.</div>
+              <div class="measurement-hint" id="measurementHint">После «Исправлено» KI сразу узнает об этом, но доверие станет зелёным только после свежего реального conversion signal.</div>
             </div>
             <div class="system-item"><div class="system-item-top"><div class="system-title">Google Ads data</div><div class="system-status gray" id="adsFreshBadge">—</div></div><div class="system-text" id="adsFreshText">—</div></div>
             <div class="system-item"><div class="system-item-top"><div class="system-title">Unified Ads coverage</div><div class="system-status gray" id="coverageBadge">—</div></div><div class="system-text" id="coverageText">—</div></div>
@@ -995,7 +1113,7 @@
     <button id="nav-home" class="active" type="button" onclick="goSection('home')"><b>⌂</b>Обзор</button>
     <button id="nav-occupancy" type="button" onclick="goSection('occupancy')"><b>▥</b>Parkplatz</button>
     <button id="nav-marketing" type="button" onclick="goSection('marketing')"><b>↗</b>Google Ads</button>
-    <button id="nav-ai" type="button" onclick="goSection('ai')"><b>✦</b>AI</button>
+    <button id="nav-ai" type="button" onclick="goSection('ai')"><b>✦</b>KI</button>
   </nav>
 
   <div class="toast" id="toast"></div>
@@ -1009,46 +1127,46 @@
   const SERVICE_SESSION_MS = 10 * 60 * 1000;
   const STATIC_DE = {
     'Загрузка…':'Laden…','Сегодня':'Heute','занятых мест · вместимость 139':'belegte Plätze · Kapazität 139',
-    'Данные на сегодня':'Daten für heute','Бронирования → Google Ads → AI. Если AI использовал более старые данные, это будет видно сразу.':'Buchungen → Google Ads → AI. Wenn die AI ältere Daten verwendet hat, wird das sofort angezeigt.',
-    'Бронирования':'Buchungen','AI-анализ':'AI-Analyse','Что сегодня сделал AI':'Was die AI heute gemacht hat',
+    'Данные на сегодня':'Daten für heute','Бронирования → Google Ads → KI. Если KI использовал более старые данные, это будет видно сразу.':'Buchungen → Google Ads → KI. Wenn die KI ältere Daten verwendet hat, wird das sofort angezeigt.',
+    'Бронирования':'Buchungen','KI-анализ':'KI-Analyse','Что сегодня сделал AI':'Was die KI heute gemacht hat',
     'Короткий итог сегодняшнего завершённого анализа. Полная история остаётся во вкладке «Лог».':'Kurze Zusammenfassung der heute abgeschlossenen Analyse. Die vollständige Historie bleibt im Tab „Protokoll“.',
     'Открыть подробный анализ →':'Detaillierte Analyse öffnen →','Google Ads — коротко':'Google Ads — kurz',
     'Вчера и последние 7 дней. Технические детали спрятаны в «Сервис».':'Gestern und die letzten 7 Tage. Technische Details befinden sich im geschützten „Admin“.','Стоимость броней по Google Ads за вчера':'Buchungsumsatz laut Google Ads · gestern',
     'Последний дневной срез':'Letzter Tagesstand','Расход':'Kosten','Бюджет / день':'Budget / Tag','Клики':'Klicks','Конверсии':'Conversions',
     'Последние 7 дней':'Letzte 7 Tage','Стоимость броней':'Buchungsumsatz',
     'Новые бронирования':'Neue Buchungen','По дате создания брони. При активном API считаем напрямую из Booking API, без подмешивания CSV. Подтверждённые, ожидающие и отменённые показаны отдельно.':'Nach Erstellungsdatum der Buchung. Bei aktivem API wird direkt aus dem Booking API gerechnet, ohne CSV-Beimischung. Bestätigte, offene und stornierte Buchungen werden getrennt angezeigt.',
-    'Вчера':'Gestern','Пиковая загрузка по зонам':'Höchste Belegung nach Bereichen','Свободно на пике':'Freie Plätze bei Höchstbelegung','Овербукинг на пике':'Überbelegung bei Höchstbelegung','Новый AI-анализ':'Neue AI-Analyse','Выберите любой доступный день. Показываем самый загруженный момент и сколько мест останется свободно к 23:59.':'Wählen Sie einen verfügbaren Tag. Angezeigt werden der Belegungshöchststand und die freien Plätze um 23:59.','Два столбика на день: под крышей и на улице. Высота — процент пиковой загрузки своей зоны; отметка 90% показывает высокую загрузку.':'Jeder Tag zeigt die höchste Belegung in Prozent für überdachte und Außenplätze. Die 90%-Marke dient als schneller visueller Hinweis auf hohe Auslastung.','Не «сейчас», а самый загруженный момент сегодняшнего дня по времени заезда/выезда из Booking API.':'Nicht „jetzt“, sondern der am stärksten belegte Zeitpunkt des heutigen Tages anhand der Ein-/Ausfahrtszeiten aus dem Booking API.','🏠 Под крышей':'🏠 Überdacht','🌳 На улице':'🌳 Außen','Загрузка парковки':'Parkplatzauslastung','Выберите месяц. Два столбика на дату: пик под крышей и пик на улице. Под крышей стремимся к 24/24; на улице 110/115 — зелёная зона с небольшим резервом.':'Monat auswählen. Zwei Balken je Datum: höchste Belegung überdacht und außen. Überdacht streben wir 24/24 an; außen sind 110/115 bereits ein grüner Komfortbereich mit kleiner Reserve.',
+    'Вчера':'Gestern','Пиковая загрузка по зонам':'Höchste Belegung nach Bereichen','Свободно на пике':'Freie Plätze bei Höchstbelegung','Овербукинг на пике':'Überbelegung bei Höchstbelegung','Новый KI-анализ':'Neue KI-Analyse','Выберите любой доступный день. Показываем самый загруженный момент и сколько мест останется свободно к 23:59.':'Wählen Sie einen verfügbaren Tag. Angezeigt werden der Belegungshöchststand und die freien Plätze um 23:59.','Два столбика на день: под крышей и на улице. Высота — процент пиковой загрузки своей зоны; отметка 90% показывает высокую загрузку.':'Jeder Tag zeigt die höchste Belegung in Prozent für überdachte und Außenplätze. Die 90%-Marke dient als schneller visueller Hinweis auf hohe Auslastung.','Не «сейчас», а самый загруженный момент сегодняшнего дня по времени заезда/выезда из Booking API.':'Nicht „jetzt“, sondern der am stärksten belegte Zeitpunkt des heutigen Tages anhand der Ein-/Ausfahrtszeiten aus dem Booking API.','🏠 Под крышей':'🏠 Überdacht','🌳 На улице':'🌳 Außen','Загрузка парковки':'Parkplatzauslastung','Выберите месяц. Два столбика на дату: пик под крышей и пик на улице. Под крышей стремимся к 24/24; на улице 110/115 — зелёная зона с небольшим резервом.':'Monat auswählen. Zwei Balken je Datum: höchste Belegung überdacht und außen. Überdacht streben wir 24/24 an; außen sind 110/115 bereits ein grüner Komfortbereich mit kleiner Reserve.',
     'Нажмите на день, чтобы увидеть пик, состояние на конец дня и общий недобор.':'Auf einen Tag tippen, um Höchstbelegung, Tagesendstand und Gesamtlücke zu sehen.','под крышей · max 24':'überdacht · max. 24','улица · max 115':'außen · max. 115',
-    'AI — последний завершённый анализ':'AI — letzte abgeschlossene Analyse','Здесь только вывод и источники этого анализа. Ручной запуск перенесён в защищённый «Сервис».':'Hier stehen nur Ergebnis und Quellen dieser Analyse. Der manuelle Start befindet sich im geschützten „Admin“.',
+    'KI — последний завершённый анализ':'KI — letzte abgeschlossene Analyse','Здесь только вывод и источники этого анализа. Ручной запуск перенесён в защищённый «Сервис».':'Hier stehen nur Ergebnis und Quellen dieser Analyse. Der manuelle Start befindet sich im geschützten „Admin“.',
     'Вывод':'Fazit','Что изменилось':'Was sich geändert hat','Что смотреть дальше':'Was als Nächstes zu beobachten ist',
     'Рекомендации и ваши решения':'Empfehlungen und Ihre Entscheidungen','У каждой рекомендации теперь видно, когда она появилась и относится ли она к последнему анализу.':'Bei jeder Empfehlung ist sichtbar, wann sie erstellt wurde und ob sie zur letzten Analyse gehört.',
-    'Загрузка очереди…':'Warteschlange wird geladen…','История AI':'AI-Log','Ежедневные итоги сохраняются в истории. Новая запись всегда появляется сверху; старые не удаляются.':'Jeder abgeschlossene AI-Lauf wird als eigener Log-Eintrag gespeichert. Der neueste steht oben; ältere bleiben erhalten.',
-    'Показать ещё':'Mehr anzeigen','Вывод дня':'Tagesfazit','Что заметил':'Was aufgefallen ist','Что дальше':'Wie es weitergeht','Рекомендации этого анализа':'Empfehlungen dieser Analyse','Сервис':'Service','Введите PIN владельца. Здесь находятся Booking API, резервный CSV, ручной запуск AI и технические действия.':'Eigentümer-PIN eingeben. Hier befinden sich Booking API, CSV-Reserve, manueller AI-Start und technische Aktionen.',
+    'Загрузка очереди…':'Warteschlange wird geladen…','История AI':'KI-Verlauf','Ежедневные итоги сохраняются в истории. Новая запись всегда появляется сверху; старые не удаляются.':'Jeder abgeschlossene KI-Lauf wird als eigener Log-Eintrag gespeichert. Der neueste steht oben; ältere bleiben erhalten.',
+    'Показать ещё':'Mehr anzeigen','Вывод дня':'Tagesfazit','Что заметил':'Was aufgefallen ist','Что дальше':'Wie es weitergeht','Рекомендации этого анализа':'Empfehlungen dieser Analyse','Сервис':'Service','Введите PIN владельца. Здесь находятся Booking API, резервный CSV, ручной запуск KI и технические действия.':'Eigentümer-PIN eingeben. Hier befinden sich Booking API, CSV-Reserve, manueller KI-Start und technische Aktionen.',
     'Открыть сервис':'Service öffnen','Сервис открыт':'Service geöffnet','Сессия временная и автоматически истечёт через 10 минут.':'Die Sitzung ist temporär und läuft nach 10 Minuten automatisch ab.','🔒 Закрыть':'🔒 Schließen',
     'Основной источник — read-only Booking API. Он обновляет новые брони, изменения и отмены по booking_id. CSV остаётся резервом.':'Hauptquelle ist das schreibgeschützte Booking API. Neue Buchungen, Änderungen und Stornierungen werden über booking_id aktualisiert. CSV bleibt die Reserve.',
     '🔄 Синхронизировать сейчас':'🔄 Jetzt synchronisieren','⏱ Включить авто 10 мин':'⏱ Auto 10 Min. aktivieren',
     'Секрет хранится только server-side в Script Property BOOKINGS_READ_API_TOKEN и не попадает в браузер.':'Das Secret bleibt ausschließlich serverseitig in der Script Property BOOKINGS_READ_API_TOKEN und gelangt nicht in den Browser.',
     'Диагностика загрузки сегодня':'Auslastungsdiagnose heute','Резервный CSV':'CSV-Reserve','Используйте CSV только если API временно недоступен или для восстановления.':'CSV nur verwenden, wenn das API vorübergehend nicht verfügbar ist oder zur Wiederherstellung.',
     '📎 Резервный CSV':'📎 CSV-Reserve','Выберите buchungen_*.csv прямо из «Файлы» на iPhone.':'buchungen_*.csv direkt aus „Dateien“ auf dem iPhone auswählen.','Выбрать CSV':'CSV auswählen','Импортировать и пересчитать':'Importieren und neu berechnen',
-    'AI вручную':'AI manuell','Автоматический ежедневный AI можно включать и выключать здесь. Ручной запуск анализа остаётся доступен всегда.':'Die automatische tägliche AI kann hier ein- oder ausgeschaltet werden. Der manuelle Analysestart bleibt immer verfügbar.','Автоматический AI':'Automatische AI','Если авто выключено, система не создаёт новые ежедневные AI-анализы сама. Booking API и APP_DATA продолжают работать; анализ можно запустить вручную кнопкой ниже.':'Wenn Auto ausgeschaltet ist, erstellt das System keine neuen täglichen AI-Analysen selbst. Booking API und APP_DATA laufen weiter; die Analyse kann unten manuell gestartet werden.','Авто включено':'Auto ein','Авто выключено':'Auto aus','⏸ Выключить авто AI':'⏸ AI-Auto ausschalten','▶️ Включить авто AI':'▶️ AI-Auto einschalten',
-    'Текущий запуск':'Aktueller Lauf','▶️ Продолжить анализ':'▶️ Analyse fortsetzen','🤖 Начать новый AI-анализ':'🤖 Neue AI-Analyse starten','«Продолжить» появляется только когда сервер доказал, что есть безопасный checkpoint. Он создаёт новый run_id и переносит только сохранённые данные/результаты без paid-call markers. «Начать новый» всегда запускает чистый анализ с нуля.':'„Fortsetzen“ erscheint nur, wenn der Server einen sicheren Checkpoint bestätigt. Es wird eine neue run_id erstellt und nur gespeicherte Daten/Ergebnisse ohne paid-call markers übernommen. „Neu starten“ beginnt immer eine vollständig neue Analyse.',
-    'Кредиты клиента':'Kunden-Credits','Текущий баланс':'Aktueller Stand','Начисление доступно только в защищённой сервисной сессии.':'Gutschriften sind nur in der geschützten Admin-Sitzung möglich.','Другое количество:':'Anderer Betrag:','Комментарий:':'Kommentar:','Начислить Credits':'Credits gutschreiben','Корректировка':'Korrektur','Оплата за неделю':'Zahlung für die Woche','Последний анализ: —':'Letzte Analyse: —','AI-анализ временно приостановлен. Пополните баланс для следующего анализа.':'AI-Analysen sind vorübergehend pausiert. Bitte Credits für die nächste Analyse aufladen.',
-    'Google Ads Automation':'Google Ads Automation','Текущий режим':'Aktueller Modus','🛑 Emergency OFF':'🛑 Emergency OFF','AI не имеет права менять Ads напрямую. Режим, deterministic policy, live BEFORE/AFTER и kill switch проверяются server-side и в Google Ads Script executor.':'Die AI darf Ads nicht direkt ändern. Modus, deterministische Policy, Live-BEFORE/AFTER und Kill-Switch werden serverseitig und im Google-Ads-Script-Executor geprüft.','Upgrade всегда начинается с OFF. SAFE AUTO в первой версии разрешён только для узкого exact-negative irrelevant intent; бюджет/keywords требуют подтверждения.':'Nach dem Upgrade ist der Modus immer OFF. SAFE AUTO ist anfangs nur für eng definierte exakte Negatives bei eindeutig irrelevanter Suchabsicht erlaubt; Budget/Keywords benötigen Bestätigung.',
-    'Техническое состояние':'Technischer Status','Заметка для AI (необязательно). Например: 07.09 исправили тег Online-Buchung abgeschlossen; тестовая/реальная бронь прошла.':'Notiz für die AI (optional). Beispiel: Am 07.09 wurde das Tag „Online-Buchung abgeschlossen“ repariert; eine Test-/echte Buchung wurde erfasst.',
+    'KI вручную':'KI manuell','Автоматический ежедневный KI можно включать и выключать здесь. Ручной запуск анализа остаётся доступен всегда.':'Die automatische tägliche KI kann hier ein- oder ausgeschaltet werden. Der manuelle Analysestart bleibt immer verfügbar.','Автоматический AI':'Automatische KI','Если авто выключено, система не создаёт новые ежедневные KI-анализы сама. Booking API и APP_DATA продолжают работать; анализ можно запустить вручную кнопкой ниже.':'Wenn Auto ausgeschaltet ist, erstellt das System keine neuen täglichen KI-Analysen selbst. Booking API und APP_DATA laufen weiter; die Analyse kann unten manuell gestartet werden.','Авто включено':'Auto ein','Авто выключено':'Auto aus','⏸ Выключить авто AI':'⏸ KI-Auto ausschalten','▶️ Включить авто AI':'▶️ KI-Auto einschalten',
+    'Текущий запуск':'Aktueller Lauf','▶️ Продолжить анализ':'▶️ Analyse fortsetzen','🤖 Начать новый KI-анализ':'🤖 Neue KI-Analyse starten','«Продолжить» появляется только когда сервер доказал, что есть безопасный checkpoint. Он создаёт новый run_id и переносит только сохранённые данные/результаты без paid-call markers. «Начать новый» всегда запускает чистый анализ с нуля.':'„Fortsetzen“ erscheint nur, wenn der Server einen sicheren Checkpoint bestätigt. Es wird eine neue run_id erstellt und nur gespeicherte Daten/Ergebnisse ohne paid-call markers übernommen. „Neu starten“ beginnt immer eine vollständig neue Analyse.',
+    'Кредиты клиента':'Kunden-Credits','Текущий баланс':'Aktueller Stand','Начисление доступно только в защищённой сервисной сессии.':'Gutschriften sind nur in der geschützten Admin-Sitzung möglich.','Другое количество:':'Anderer Betrag:','Комментарий:':'Kommentar:','Начислить Credits':'Credits gutschreiben','Корректировка':'Korrektur','Оплата за неделю':'Zahlung für die Woche','Последний анализ: —':'Letzte Analyse: —','KI-анализ временно приостановлен. Пополните баланс для следующего анализа.':'KI-Analysen sind vorübergehend pausiert. Bitte Credits für die nächste Analyse aufladen.',
+    'Google Ads Automation':'Google Ads Automation','Текущий режим':'Aktueller Modus','🛑 Emergency OFF':'🛑 Emergency OFF','KI не имеет права менять Ads напрямую. Режим, deterministic policy, live BEFORE/AFTER и kill switch проверяются server-side и в Google Ads Script executor.':'Die KI darf Ads nicht direkt ändern. Modus, deterministische Policy, Live-BEFORE/AFTER und Kill-Switch werden serverseitig und im Google-Ads-Script-Executor geprüft.','Upgrade всегда начинается с OFF. SAFE AUTO в первой версии разрешён только для узкого exact-negative irrelevant intent; бюджет/keywords требуют подтверждения.':'Nach dem Upgrade ist der Modus immer OFF. SAFE AUTO ist anfangs nur für eng definierte exakte Negatives bei eindeutig irrelevanter Suchabsicht erlaubt; Budget/Keywords benötigen Bestätigung.',
+    'Техническое состояние':'Technischer Status','Заметка для KI (необязательно). Например: 07.09 исправили тег Online-Buchung abgeschlossen; тестовая/реальная бронь прошла.':'Notiz für die KI (optional). Beispiel: Am 07.09 wurde das Tag „Online-Buchung abgeschlossen“ repariert; eine Test-/echte Buchung wurde erfasst.',
     '🔴 Всё ещё сломано':'🔴 Noch defekt','🟡 Исправлено — начать проверку':'🟡 Repariert — Prüfung starten',
-    'После «Исправлено» AI сразу узнает об этом, но доверие станет зелёным только после свежего реального conversion signal.':'Nach „Repariert“ weiß die AI sofort Bescheid; der Status wird aber erst nach einem frischen echten Conversion-Signal grün.',
-    'Фоновая система':'Hintergrundsystem','AI, Booking API и APP_DATA работают на сервере, даже если iPhone закрыт. Телефон только читает готовые данные и отправляет ваши действия.':'AI, Booking API und APP_DATA laufen serverseitig weiter, auch wenn das iPhone geschlossen ist. Das Telefon liest vorbereitete Daten und sendet Ihre Aktionen.',
+    'После «Исправлено» KI сразу узнает об этом, но доверие станет зелёным только после свежего реального conversion signal.':'Nach „Repariert“ weiß die KI sofort Bescheid; der Status wird aber erst nach einem frischen echten Conversion-Signal grün.',
+    'Фоновая система':'Hintergrundsystem','KI, Booking API и APP_DATA работают на сервере, даже если iPhone закрыт. Телефон только читает готовые данные и отправляет ваши действия.':'KI, Booking API und APP_DATA laufen serverseitig weiter, auch wenn das iPhone geschlossen ist. Das Telefon liest vorbereitete Daten und sendet Ihre Aktionen.',
     '⚙️ Настроить / проверить фон':'⚙️ Hintergrund einrichten / prüfen','После настройки приложение можно закрыть: система сама проверяет, нужен ли сегодня Senior. Если нужен, GPT-5.6 Sol анализирует полный новый день, Luna при необходимости готовит большой массив доказательств, Sol принимает решение, а Claude Fable 5.1 независимо проверяет существенные действия.':'Nach der Einrichtung kann die App geschlossen werden: Das System prüft zuerst, ob heute überhaupt ein Senior nötig ist. Falls ja, analysiert GPT-5.6 Sol den vollständigen neuen Tag, Luna bereitet bei Bedarf große Evidenzmengen auf, Sol trifft die Entscheidung und Claude Fable 5.1 prüft wesentliche Maßnahmen unabhängig.',
     'Главная':'Start','Загрузка':'Auslastung','Лог':'Protokoll'
   };
   Object.assign(STATIC_DE,{'Buchungspipeline · 120 Tage':'Buchungspipeline · 120 Tage','Pipeline 120T':'Pipeline 120T','Zeigt den tatsächlichen Rest bis 125 Plätze und ob die aktuelle Buchungsgeschwindigkeit reicht. Historische Vorlaufdaten werden nur für denselben Anreisemonat und nur bei ausreichender Historie verwendet.':'Zeigt den tatsächlichen Rest bis 125 Plätze und ob die aktuelle Buchungsgeschwindigkeit reicht. Historische Vorlaufdaten werden nur für denselben Anreisemonat und nur bei ausreichender Historie verwendet.','Benötigt jetzt / Tag':'Benötigt jetzt / Tag','Aktuell / Tag':'Aktuell / Tag','Fehlende Buchungen':'Fehlende Buchungen','Daten werden geladen':'Daten werden geladen'});
   Object.assign(STATIC_DE,{
-    'Обзор бизнеса':'Geschäftsübersicht','Брони, парковка, маркетинг и решения AI — только то, что важно владельцу сегодня.':'Buchungen, Parkplatz, Marketing und AI-Entscheidungen – nur das, was heute für den Eigentümer wichtig ist.',
+    'Обзор бизнеса':'Geschäftsübersicht','Брони, парковка, маркетинг и решения KI — только то, что важно владельцу сегодня.':'Buchungen, Parkplatz, Marketing und KI-Entscheidungen – nur das, was heute für den Eigentümer wichtig ist.',
     'Продажи сегодня':'Verkäufe heute','Новые брони':'Neue Buchungen','Стоимость подтверждённых':'Wert bestätigter Buchungen','валовая стоимость, не прибыль':'Bruttobuchungswert, kein Gewinn','сумма успешных бронирований':'Summe erfolgreicher Buchungen',
-    'Конверсии':'Conversions','На конец дня: —':'Tagesende: —','ориентир 90%':'90%-Orientierung','Пиковая загрузка по зонам':'Höchste Belegung nach Bereichen','Парковка сегодня · пиковая загрузка':'Parkplatz heute · Höchstbelegung','Требует внимания':'Aufmerksamkeit erforderlich','Маркетинг · вчера':'Google Ads · gestern','Google Ads · вчера':'Google Ads · gestern','AI сегодня':'AI heute','Состояние данных':'Datenstatus','Показать источники':'Quellen anzeigen',
+    'Конверсии':'Conversions','На конец дня: —':'Tagesende: —','ориентир 90%':'90%-Orientierung','Пиковая загрузка по зонам':'Höchste Belegung nach Bereichen','Парковка сегодня · пиковая загрузка':'Parkplatz heute · Höchstbelegung','Требует внимания':'Aufmerksamkeit erforderlich','Маркетинг · вчера':'Google Ads · gestern','Google Ads · вчера':'Google Ads · gestern','KI сегодня':'KI heute','Состояние данных':'Datenstatus','Показать источники':'Quellen anzeigen',
     'Обзор':'Übersicht','Парковка':'Parkplatz','Маркетинг':'Google Ads','Google Ads':'Google Ads','Бронирования':'Buchungen','Пики по дням':'Höchstbelegung nach Tagen','Календарь':'Kalender','Календарь загрузки':'Auslastungskalender',
     'Состояние маркетинга':'Marketingstatus','Последние 30 дней':'Letzte 30 Tage',
-    'AI-советник':'AI-Berater','Решения и вопросы':'Entscheidungen und Fragen','Сегодня':'Heute','Решения':'Entscheidungen','История':'Log','Последний завершённый анализ':'Letzte abgeschlossene Analyse',
+    'KI-советник':'KI-Berater','Решения и вопросы':'Entscheidungen und Fragen','Сегодня':'Heute','Решения':'Entscheidungen','История':'Log','Последний завершённый анализ':'Letzte abgeschlossene Analyse',
     "Сегодня · загрузка по календарному дню":"Heute · Belegung nach Kalendertag",
     "занятых мест по бизнес-логике · вместимость 139":"belegte Plätze nach Geschäftslogik · Kapazität 139",
     "новых броней":"neue Buchungen",
@@ -1062,15 +1180,15 @@
     "Не «сейчас», а самый загруженный момент дня по точным временам заезда и выезда.":"Nicht der aktuelle Stand, sondern der am stärksten belegte Zeitpunkt des Tages anhand der exakten Ein- und Ausfahrtszeiten.",
     "Общий пик: —":"Maximale Belegung: —",
     "Открыть парковку →":"Parkplatz öffnen →",
-    "Единая очередь: загрузка, tracking, данные и решения AI. Если всё спокойно — так и будет написано.":"Eine gemeinsame Übersicht für Auslastung, Tracking, Daten und AI-Entscheidungen. Wenn alles ruhig ist, wird genau das angezeigt.",
+    "Единая очередь: загрузка, tracking, данные и решения KI. Если всё спокойно — так и будет написано.":"Eine gemeinsame Übersicht für Auslastung, Tracking, Daten und KI-Entscheidungen. Wenn alles ruhig ist, wird genau das angezeigt.",
     "Коротко. Подробности — во вкладке «Google Ads».":"Kurzüberblick. Details stehen unter „Google Ads“.",
     "Стоимость броней Google Ads":"Buchungsumsatz laut Google Ads",
     "Tracking подтверждён":"Tracking bestätigt",
     "Открыть маркетинг →":"Google Ads öffnen →",
     "Короткий итог и только ваши ожидающие решения.":"Kurzes Fazit und nur Entscheidungen, die auf Sie warten.",
-    "Решения и вопросы AI →":"AI-Entscheidungen und Fragen →",
+    "Решения и вопросы KI →":"KI-Entscheidungen und Fragen →",
     "Проверяю источники…":"Quellen werden geprüft…",
-    "AI сейчас работает":"AI läuft gerade",
+    "KI сейчас работает":"KI läuft gerade",
     "Бронирования, пики по зонам и календарная загрузка в одном месте.":"Buchungen, Zonenspitzen und Kalendarauslastung an einem Ort.",
     "Пиковая загрузка по зонам":"Höchste Belegung nach Bereichen",
     "Выберите любой доступный день. Показываем самый загруженный момент и сколько мест останется свободно к 23:59.":"Wählen Sie einen verfügbaren Tag. Angezeigt werden der Belegungshöchststand und die freien Plätze um 23:59.",
@@ -1083,7 +1201,7 @@
     "Текущий запуск":"Aktueller Lauf"
   });
   Object.assign(STATIC_DE,{'Два столбика на день: под крышей и на улице. Высота — процент пиковой загрузки своей зоны; отметка 90% показывает высокую загрузку.':'Zwei Säulen pro Tag: überdacht und außen. Die Höhe zeigt die höchste Belegung der jeweiligen Zone; die 90%-Marke kennzeichnet hohe Auslastung.'});
-  Object.assign(STATIC_DE,{"По дате создания брони. При активном API считаем напрямую из Booking API, без подмешивания CSV.":"Nach Erstellungsdatum der Buchung. Bei aktivem API wird direkt aus dem Booking API gerechnet, ohne CSV-Beimischung.","Пик: —":"Höchstbelegung: —","Резерв на пике: —":"Freie Plätze bei Höchstbelegung: —","Пиковые значения — операционный слой. 125/139 — ориентир хорошей загрузки, а 139/139 — максимум.":"Die Höchstbelegung ist eine operative Kennzahl. 125/139 ist der Richtwert für gute Auslastung, 139/139 das Maximum.","под крышей · 24":"überdacht · 24","улица · 115":"außen · 115","Google Ads, качество измерения и результат по бронированиям. Бизнес-результат всегда сверяется с реальными бронированиями.":"Google Ads, Messqualität und Buchungsergebnis. Das Geschäftsergebnis wird immer mit echten Buchungen abgeglichen.","Вчера, 7 и 30 дней. Conversion value — валовая стоимость броней по данным Google Ads, не прибыль.":"Gestern, 7 und 30 Tage. Google Ads meldet den Bruttobuchungsumsatz der erfassten Conversions; das ist kein Gewinn.","Дата: —":"Datum: —","Gross booking value по Google Ads. CPA:":"Von Google Ads gemeldeter Bruttobuchungsumsatz. Kein Gewinn. CPA:","Landing-page и сайт здесь — только диагностический контекст для Google Ads; AI не предлагает изменения сайта/CRO.":"Landingpage und Website dienen hier nur als Diagnosekontext für Google Ads; die AI empfiehlt keine Website-/CRO-Änderungen.","Анализ, решения владельца, вопросы и история — в одном разделе.":"Analyse, Eigentümerentscheidungen, Fragen und Verlauf in einem Bereich.","Вывод, что изменилось и что смотреть дальше. Ручной запуск остаётся в защищённом сервисе.":"Fazit, Änderungen und nächste Beobachtungspunkte. Der manuelle Start bleibt im geschützten Admin.","AI-тексты пока сохраняются на русском языке.":"Neue AI-Berichte werden direkt auf Deutsch erstellt; eine separate russische AI-Übersetzung wird nicht mehr erzeugt.","Бронирования: —":"Buchungen: —","Сначала действия, которые ждут вашего решения; затем согласованные и вопросы AI.":"Zuerst Aktionen, die auf Ihre Entscheidung warten; danach bestätigte Aktionen und AI-Fragen.","💬 Обратная связь с AI":"💬 Feedback an die AI","❓ Задать вопрос AI":"❓ AI eine Frage stellen","Ежедневные итоги сохраняются. Новая запись всегда сверху.":"Tägliche Ergebnisse werden gespeichert. Der neueste Eintrag steht immer oben.","Последнее обновление бронирований: —":"Letzte Buchungsaktualisierung: —","Стоимость броней Google Ads":"Buchungsumsatz laut Google Ads","Новые брони":"Neue Buchungen","Стоимость подтверждённых":"Wert bestätigter Buchungen","Сайт / Landing pages":"Website / Landingpages"});
+  Object.assign(STATIC_DE,{"По дате создания брони. При активном API считаем напрямую из Booking API, без подмешивания CSV.":"Nach Erstellungsdatum der Buchung. Bei aktivem API wird direkt aus dem Booking API gerechnet, ohne CSV-Beimischung.","Пик: —":"Höchstbelegung: —","Резерв на пике: —":"Freie Plätze bei Höchstbelegung: —","Пиковые значения — операционный слой. 125/139 — ориентир хорошей загрузки, а 139/139 — максимум.":"Die Höchstbelegung ist eine operative Kennzahl. 125/139 ist der Richtwert für gute Auslastung, 139/139 das Maximum.","под крышей · 24":"überdacht · 24","улица · 115":"außen · 115","Google Ads, качество измерения и результат по бронированиям. Бизнес-результат всегда сверяется с реальными бронированиями.":"Google Ads, Messqualität und Buchungsergebnis. Das Geschäftsergebnis wird immer mit echten Buchungen abgeglichen.","Вчера, 7 и 30 дней. Conversion value — валовая стоимость броней по данным Google Ads, не прибыль.":"Gestern, 7 und 30 Tage. Google Ads meldet den Bruttobuchungsumsatz der erfassten Conversions; das ist kein Gewinn.","Дата: —":"Datum: —","Gross booking value по Google Ads. CPA:":"Von Google Ads gemeldeter Bruttobuchungsumsatz. Kein Gewinn. CPA:","Landing-page и сайт здесь — только диагностический контекст для Google Ads; KI не предлагает изменения сайта/CRO.":"Landingpage und Website dienen hier nur als Diagnosekontext für Google Ads; die KI empfiehlt keine Website-/CRO-Änderungen.","Анализ, решения владельца, вопросы и история — в одном разделе.":"Analyse, Eigentümerentscheidungen, Fragen und Verlauf in einem Bereich.","Вывод, что изменилось и что смотреть дальше. Ручной запуск остаётся в защищённом сервисе.":"Fazit, Änderungen und nächste Beobachtungspunkte. Der manuelle Start bleibt im geschützten Admin.","KI-тексты пока сохраняются на русском языке.":"Neue KI-Berichte werden direkt auf Deutsch erstellt; eine separate russische KI-Übersetzung wird nicht mehr erzeugt.","Бронирования: —":"Buchungen: —","Сначала действия, которые ждут вашего решения; затем согласованные и вопросы KI.":"Zuerst Aktionen, die auf Ihre Entscheidung warten; danach bestätigte Aktionen und KI-Fragen.","💬 Обратная связь с AI":"💬 Feedback an die KI","❓ Задать вопрос AI":"❓ KI eine Frage stellen","Ежедневные итоги сохраняются. Новая запись всегда сверху.":"Tägliche Ergebnisse werden gespeichert. Der neueste Eintrag steht immer oben.","Последнее обновление бронирований: —":"Letzte Buchungsaktualisierung: —","Стоимость броней Google Ads":"Buchungsumsatz laut Google Ads","Новые брони":"Neue Buchungen","Стоимость подтверждённых":"Wert bestätigter Buchungen","Сайт / Landing pages":"Website / Landingpages"});
   Object.assign(STATIC_DE,{
     'Язык администратора':'Admin-Sprache',
     'Интерфейс владельца по умолчанию всегда немецкий. Русский режим сохраняется только на этом устройстве после выбора здесь.':'Die Eigentümeroberfläche startet standardmäßig immer auf Deutsch. Russisch wird nur auf diesem Gerät gespeichert, nachdem es hier ausgewählt wurde.',
@@ -1099,7 +1217,7 @@
     'Корректировка (+/−)':'Korrektur (+/−)',
     'Eine manuelle Abbuchung erfordert einen Grund und wird im CREDIT_LEDGER als MANUAL_DEBIT protokolliert.':'Eine manuelle Abbuchung erfordert einen Grund und wird im CREDIT_LEDGER als MANUAL_DEBIT protokolliert.',
     'Upgrade всегда начинается с OFF. Сначала DRY RUN, затем APPROVAL ONLY, и только после подтверждённой реальной execution — SAFE AUTO.':'Nach dem Upgrade beginnt die Ausführung immer mit OFF. Zuerst DRY RUN, dann APPROVAL ONLY und erst nach einer bestätigten realen Ausführung SAFE AUTO.',
-    'Задать вопрос AI по рекламе, загрузке или рекомендации':'AI eine Frage zu Werbung, Auslastung oder einer Empfehlung stellen'
+    'Задать вопрос KI по рекламе, загрузке или рекомендации':'KI eine Frage zu Werbung, Auslastung oder einer Empfehlung stellen'
   });
   Object.assign(STATIC_DE,{
     'Что ParkSpot дал мне':'Was ParkSpot für mich bewirkt hat',
@@ -1111,7 +1229,7 @@
     'booking value по Google Ads':'Buchungsumsatz laut Google Ads',
     'Открыть отчёт →':'Bericht öffnen →',
     'Бизнес-границы ParkSpot':'ParkSpot Geschäftsgrenzen',
-    'Жёсткие правила владельца. AI и автоматизация не могут их обходить.':'Verbindliche Eigentümerregeln. AI und Automatisierung dürfen sie nicht umgehen.',
+    'Жёсткие правила владельца. KI и автоматизация не могут их обходить.':'Verbindliche Eigentümerregeln. KI und Automatisierung dürfen sie nicht umgehen.',
     'Цель':'Ziel',
     'Максимизировать booking revenue с доступной ёмкости при разумных расходах Google Ads':'Buchungsumsatz aus verfügbarer Kapazität bei vernünftigen Google-Ads-Kosten maximieren',
     'Хорошая загрузка · мест':'Gute Auslastung · Plätze',
@@ -1170,7 +1288,7 @@
     'Нужно ваше решение':'Ihre Entscheidung ist erforderlich',
     'Новая рекомендация, которая требует подтверждения владельца.':'Neue Empfehlung, die Ihre Freigabe benötigt.',
     'Критическая проблема':'Kritisches Problem',
-    'Tracking, данные или AI-процесс требуют внимания.':'Tracking, Daten oder der AI-Prozess erfordern Aufmerksamkeit.',
+    'Tracking, данные или KI-процесс требуют внимания.':'Tracking, Daten oder der KI-Prozess erfordern Aufmerksamkeit.',
     'Безопасное действие выполнено':'Sichere Änderung ausgeführt',
     'ParkSpot сообщает о проверенном автоматическом изменении.':'ParkSpot informiert über eine verifizierte automatische Änderung.',
     'Недельный отчёт':'Wochenbericht',
@@ -1178,7 +1296,7 @@
     'Сохранить уведомления':'Benachrichtigungen speichern',
     'Если email пустой, ParkSpot продолжает работать нормально, но письма не отправляются.':'Wenn die E-Mail leer ist, arbeitet ParkSpot normal weiter, versendet jedoch keine Nachrichten.',
     'Admin / Сервис':'Admin / Service',
-    'Введите Admin-PIN. Здесь находятся Booking API, резервный CSV, ручной запуск AI и технические действия.':'Admin-PIN eingeben. Hier befinden sich Booking API, CSV-Reserve, manueller AI-Start und technische Funktionen.',
+    'Введите Admin-PIN. Здесь находятся Booking API, резервный CSV, ручной запуск KI и технические действия.':'Admin-PIN eingeben. Hier befinden sich Booking API, CSV-Reserve, manueller KI-Start und technische Funktionen.',
     'Открыть Admin':'Admin öffnen',
     'Admin открыт':'Admin geöffnet',
     'Бизнес-границы ParkSpot':'ParkSpot Geschäftsgrenzen',
@@ -1190,9 +1308,9 @@
   Object.assign(STATIC_DE,{
     'Пики':'Höchstbelegung',
     'Решения, вопросы и последовательный лог анализов. Полный ежедневный вывод показывается только в логе, без дублирования.':'Entscheidungen, Fragen und der fortlaufende Analyseverlauf. Der vollständige Tagesbericht erscheint nur im Protokoll, ohne doppelte Darstellung.',
-    'AI-лог':'AI-Protokoll',
+    'KI-лог':'KI-Verlauf',
     'Один завершённый анализ = одна запись. Самый новый сверху. Если пропустили несколько дней — просто листайте записи по порядку.':'Eine abgeschlossene Analyse entspricht einem Eintrag. Zuerst sehen Sie nur Kurzfassung und heutige Aktion; technische Begründung erscheint erst unter „Details anzeigen“.',
-    'Справочно: какие роли участвуют в системе. Это не означает отдельный платный AI-вызов для каждой роли.':'Übersicht der beteiligten Rollen. Das bedeutet nicht, dass für jede Rolle ein separater kostenpflichtiger AI-Aufruf erfolgt.',
+    'Справочно: какие роли участвуют в системе. Это не означает отдельный платный KI-вызов для каждой роли.':'Übersicht der beteiligten Rollen. Das bedeutet nicht, dass für jede Rolle ein separater kostenpflichtiger KI-Aufruf erfolgt.',
     'Просто объяснено':'Einfach erklärt',
     'Термины коротко':'Begriffe kurz erklärt'
   });
@@ -1285,6 +1403,77 @@
   let WHY_POLL_PENDING=false;
   let WHY_START_PENDING=false;
   let WHY_RESTORE_DONE=false;
+
+
+  let KI_CHAT_PENDING=false;
+  let KI_CHAT_LAST_FEEDBACK_ID='';
+  let KI_CHAT_LAST_QUESTION='';
+  let KI_CHAT_LAST_DEEP_COST=2;
+
+  function fillKiChatSuggestion(text){
+    const c=document.getElementById('generalAiQuestion');if(!c)return;
+    c.value=String(text||'');c.focus();
+  }
+
+  function kiChatKeyDown(e){
+    if(!e)return;
+    if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)){e.preventDefault();askGeneralQuestion();}
+  }
+
+  function setKiChatBusy(on){
+    KI_CHAT_PENDING=!!on;
+    const btn=document.getElementById('kiChatSendBtn');if(btn){btn.disabled=!!on;btn.textContent=on?'…':'➤';}
+  }
+
+  function kiChatSourceMeta(source){
+    source=source||{};const parts=[];
+    if(source.as_of)parts.push(ui('данные ','Daten ')+fmtDate(source.as_of));
+    if(source.ads_report_date)parts.push('Google Ads '+fmtDate(source.ads_report_date));
+    if(source.ki_completed_at)parts.push(ui('KI-анализ ','KI-Analyse ')+fmtDateTime(source.ki_completed_at));
+    return parts.join(' · ');
+  }
+
+  function appendLocalKiChatTurn(question,res){
+    const el=document.getElementById('ownerFeedbackPanel');if(!el)return;
+    const empty=el.querySelector('.small-note');if(empty&&el.children.length===1)el.innerHTML='';
+    const q=document.createElement('div');q.className='ki-message user';q.textContent=question;el.appendChild(q);
+    const a=document.createElement('div');a.className='ki-message assistant';
+    const body=document.createElement('div');body.textContent=(res&&res.answer)||ui('Ответ не получен.','Keine Antwort erhalten.');a.appendChild(body);
+    const meta=document.createElement('div');meta.className='ki-message-meta';meta.textContent=(res&&res.confidence_label?('Sicherheit: '+String(res.confidence_label).toUpperCase()):'')+(res&&res.source&&kiChatSourceMeta(res.source)?((res&&res.confidence_label?' · ':'')+kiChatSourceMeta(res.source)):'');a.appendChild(meta);
+    if(res&&(res.deep_suggested||res.queue_suggested)){
+      const actions=document.createElement('div');actions.className='ki-chat-actions';
+      if(res.queue_suggested){const b=document.createElement('button');b.className='ki-action-btn';b.type='button';b.textContent=ui('Для следующего KI-анализа','Für nächsten KI-Lauf vormerken');b.onclick=function(){queueLastKiChatForNextRun();};actions.appendChild(b);}
+      if(res.deep_suggested){const b=document.createElement('button');b.className='ki-action-btn primary';b.type='button';b.textContent=ui('Глубокий разбор · ','Tiefenanalyse · ')+String(res.deep_credit_cost||2)+' Credits';b.onclick=function(){startLastKiChatDeep();};actions.appendChild(b);}
+      a.appendChild(actions);
+    }
+    el.appendChild(a);el.scrollTop=el.scrollHeight;
+  }
+
+  function queueKiChatForNextRun(feedbackId){
+    const id=String(feedbackId||'').trim();if(!id){toast(ui('Сначала задайте вопрос.','Stellen Sie zuerst eine Frage.'));return;}
+    google.script.run.withSuccessHandler(function(res){toast((res&&res.message)||ui('Вопрос поставлен в очередь.','Frage vorgemerkt.'));setTimeout(()=>loadData(true),500);}).withFailureHandler(showError).webAppQueueKiChatForNextRun(id);
+  }
+
+  function queueLastKiChatForNextRun(){return queueKiChatForNextRun(KI_CHAT_LAST_FEEDBACK_ID);}
+
+  function startKiChatDeepQuestion(question,costValue){
+    const q=String(question||'').trim();if(!q){toast(ui('Сначала задайте вопрос.','Stellen Sie zuerst eine Frage.'));return;}
+    const cost=Math.max(1,Number(costValue)||2);
+    if(!confirm(ui('Запустить глубокий Sol-разбор этого вопроса? Будет списано '+cost+' Credits (LIGHT). Google Ads не изменятся.','Tiefenanalyse mit Sol für diese Frage starten? Es werden '+cost+' Credits (LIGHT) berechnet. Google Ads werden nicht verändert.')))return;
+    setKiChatBusy(true);
+    google.script.run
+      .withSuccessHandler(function(res){setKiChatBusy(false);if(!res||!res.ok){toast((res&&res.message)||ui('Не удалось начать глубокий разбор.','Tiefenanalyse konnte nicht gestartet werden.'));return;}handleWhyInvestigationState(res.investigation||{});})
+      .withFailureHandler(function(err){setKiChatBusy(false);showError(err);})
+      .webAppStartKiChatDeep(q,CURRENT_LANG);
+  }
+
+  function startLastKiChatDeep(){return startKiChatDeepQuestion(KI_CHAT_LAST_QUESTION,KI_CHAT_LAST_DEEP_COST);}
+
+  function openStoredWhyInvestigation(id){
+    if(!id)return;
+    google.script.run.withSuccessHandler(function(res){if(res&&res.ok&&res.investigation)handleWhyInvestigationState(res.investigation);}).withFailureHandler(showError).webAppGetWhyInvestigation(id);
+  }
+
 
   const LOCAL_OWNER_SNAPSHOT_KEY='parkspot_owner_snapshot_v351_hf2';
   function saveLocalOwnerSnapshot(data){
@@ -1392,7 +1581,7 @@
         if(requestId!==DATA_REQUEST_SEQ) return;
         DATA_PENDING=false;
         if(firstLoad) setLoading(false);
-        // V3.44: a materialized APP_DATA snapshot may lag behind live AI polling.
+        // V3.44: a materialized APP_DATA snapshot may lag behind live KI polling.
         // Never let a manual/full refresh move the same active run backwards.
         if(data && data.ai && LIVE_AI_STATE){
           const snapRun=String(data.ai.current_run_id||data.ai.run_id||'');
@@ -1417,8 +1606,8 @@
           }
         }
         render(data);
-        // Every first open and every manual refresh asks for authoritative live AI status immediately.
-        if(firstLoad || !silent){setTimeout(pollAiStatus,60);setTimeout(syncLiveExecutionState,120);} // authoritative live AI + execution state
+        // Every first open and every manual refresh asks for authoritative live KI status immediately.
+        if(firstLoad || !silent){setTimeout(pollAiStatus,60);setTimeout(syncLiveExecutionState,120);} // authoritative live KI + execution state
         if(!silent && !firstLoad) toast(ui('✅ Данные обновлены.','✅ Daten aktualisiert.'));
       })
       .withFailureHandler(err=>{
@@ -1507,10 +1696,21 @@
     }
     if(ms==='RED') attention.push({c:'red',t:ui('Google Ads tracking остаётся ненадёжным.','Google-Ads-Tracking bleibt unzuverlässig.')});
     else if(ms==='YELLOW') attention.push({c:'yellow',t:ui('Google Ads tracking ещё проходит проверку восстановления.','Google-Ads-Tracking befindet sich noch in der Wiederherstellungsprüfung.')});
-    const inbox=data.action_inbox||{}; if(Number(inbox.pending_count||0)>0) attention.push({c:'blue',t:ui('🤖 AI ждёт ваших решений: ','🤖 AI wartet auf Ihre Entscheidungen: ')+num0(inbox.pending_count)});
+    const inbox=data.action_inbox||{}; if(Number(inbox.pending_count||0)>0) attention.push({c:'blue',t:ui('🤖 KI ждёт ваших решений: ','🤖 KI wartet auf Ihre Entscheidungen: ')+num0(inbox.pending_count)});
     const bg=data.background_system||{}; if(bg.app_data_last_error) attention.push({c:'yellow',t:ui('APP_DATA: ','APP_DATA: ')+shortText(bg.app_data_last_error,140)});
     if(!attention.length) attention.push({c:'green',t:ui('✅ Сегодня критических проблем нет. Действий от вас не требуется.','✅ Heute gibt es keine kritischen Probleme. Keine Aktion erforderlich.')});
     const box=document.getElementById('overviewAttention'); if(box) box.innerHTML=attention.slice(0,5).map(x=>'<div class="attention-item '+x.c+'">'+escapeHtml(x.t)+'</div>').join('');
+
+    const ownerCard=document.getElementById('ownerStatusCard');
+    if(ownerCard){
+      const rank={red:4,yellow:3,blue:2,green:1},top=attention.slice().sort(function(a,b){return (rank[b.c]||0)-(rank[a.c]||0);})[0]||{c:'green',t:ui('Сегодня критических проблем нет.','Heute gibt es keine kritischen Probleme.')};
+      ownerCard.className='owner-status-card '+(top.c||'green');
+      setText('ownerStatusIcon',top.c==='red'?'!':top.c==='yellow'?'•':top.c==='blue'?'↗':'✓');
+      setText('ownerStatusTitle',top.c==='red'?ui('Нужно внимание','Handlungsbedarf'):top.c==='yellow'?ui('Наблюдать','Beobachten'):top.c==='blue'?ui('Нужно ваше решение','Ihre Entscheidung'):ui('Всё работает','Alles läuft'));
+      setText('ownerStatusText',String(top.t||''));
+      const aiNow=data.ai||{},done=aiNow.completed_at||aiNow.last_completed_at||'';
+      setText('ownerStatusMeta',done?(ui('KI проверила ','KI geprüft ')+fmtDateTime(done)):ui('KI · проверка данных','KI · Datenprüfung'));
+    }
 
     const pipe=data.owner_pipeline||{}; const statuses=[String((pipe.bookings||{}).status||''),String((pipe.ads||{}).status||''),String((pipe.ai||{}).status||'')].map(x=>x.toUpperCase());
     const bad=statuses.filter(x=>!['FRESH','RUNNING'].includes(x));
@@ -1522,9 +1722,9 @@
     data=data||{}; const senior=(data.system_health&&data.system_health.senior_data)||{}; const n=Number(senior.landing_page_rows||0);
     setText('siteDataBadge',n>0?'🟢':'⚪');
     setText('siteDataText',n>0
-      ? ui('Unified exporter передал landing-page performance rows: ','Unified Exporter lieferte Landingpage-Performance-Zeilen: ')+num0(n)+ui('. AI может сравнивать URL по рекламе, но это не визуальный аудит дизайна сайта.','. Die AI kann URLs anhand der Werbeleistung vergleichen; das ist kein visueller Website-Audit.')
-      : ui('Landing-page performance rows пока отсутствуют. AI не должен придумывать выводы о конкретных страницах.','Landingpage-Performance-Daten fehlen derzeit. Die AI darf keine konkreten Seitenschlüsse erfinden.'));
-    setText('siteDataFoot',ui('AI использует текстовый снимок сайта и landing-page данные только как диагностический контекст Google Ads: релевантность назначения, согласованность сообщения и tracking. Изменения сайта/CRO он не рекомендует.','Die AI nutzt Website-Text-Snapshot und Landingpage-Daten nur als Google-Ads-Diagnosekontext: Zielseitenrelevanz, Message-Konsistenz und Tracking. Website-/CRO-Änderungen werden nicht empfohlen.'));
+      ? ui('Unified exporter передал landing-page performance rows: ','Unified Exporter lieferte Landingpage-Performance-Zeilen: ')+num0(n)+ui('. KI может сравнивать URL по рекламе, но это не визуальный аудит дизайна сайта.','. Die KI kann URLs anhand der Werbeleistung vergleichen; das ist kein visueller Website-Audit.')
+      : ui('Landing-page performance rows пока отсутствуют. KI не должен придумывать выводы о конкретных страницах.','Landingpage-Performance-Daten fehlen derzeit. Die KI darf keine konkreten Seitenschlüsse erfinden.'));
+    setText('siteDataFoot',ui('KI использует текстовый снимок сайта и landing-page данные только как диагностический контекст Google Ads: релевантность назначения, согласованность сообщения и tracking. Изменения сайта/CRO он не рекомендует.','Die KI nutzt Website-Text-Snapshot und Landingpage-Daten nur als Google-Ads-Diagnosekontext: Zielseitenrelevanz, Message-Konsistenz und Tracking. Website-/CRO-Änderungen werden nicht empfohlen.'));
     const m=(data.system_health&&data.system_health.measurement)||{};const st=String(m.status||'YELLOW').toUpperCase();const badge=document.getElementById('marketingTrackingBadge');
     if(badge){badge.className='system-status '+(st==='GREEN'?'green':st==='RED'?'red':'yellow');badge.textContent=st==='GREEN'?ui('Надёжно','Zuverlässig'):st==='RED'?ui('Ненадёжно','Unzuverlässig'):ui('Проверка','Prüfung');}
     setText('marketingTrackingText',st==='GREEN'?ui('Conversion tracking подтверждён свежими сигналами.','Conversion-Tracking ist durch frische Signale bestätigt.'):st==='RED'?ui('Conversion tracking ненадёжен. Конверсии/CPA/ROAS нельзя использовать для сильных решений.','Conversion-Tracking ist unzuverlässig. Conversions/CPA/ROAS nicht für starke Entscheidungen verwenden.'):ui('Conversion tracking находится в режиме восстановления/проверки.','Conversion-Tracking befindet sich in Wiederherstellung/Prüfung.'));
@@ -1711,7 +1911,7 @@
       return ui('Анализ создан и стоит в серверной очереди. Постоянный фоновый процесс подхватит его автоматически.','Die Analyse wurde erstellt und steht in der Server-Warteschlange. Der permanente Hintergrundprozess übernimmt sie automatisch.');
     }
     if(low.includes('director_input_guard_internal') || low.includes('sol_director_total_input_guard_hf1') || low.includes('sol_director_total_input_guard')){
-      return ui('AI-анализ не был запущен из-за внутреннего ограничения размера. Запрос модели не отправлялся и AI Credits не расходовались.','Die AI-Analyse konnte wegen eines internen Größenlimits nicht gestartet werden. Es wurde keine Modellanfrage gesendet und es wurden keine AI-Credits verbraucht.');
+      return ui('KI-анализ не был запущен из-за внутреннего ограничения размера. Запрос модели не отправлялся и KI Credits не расходовались.','Die KI-Analyse konnte trotz automatischer sicherer Neuverpackung nicht gestartet werden. Es wurde keine Modellanfrage gesendet und es wurden keine KI-Credits verbraucht.');
     }
     return s;
   }
@@ -1731,16 +1931,16 @@
       PHASE2_COST_UNCERTAIN:ui('Проверка оплаты P2','Kostenprüfung P2'),
       PHASE3_COST_UNCERTAIN:ui('Проверка оплаты P3','Kostenprüfung P3')
     };
-    return map[status]||'AI';
+    return map[status]||'KI';
   }
 
   function runStageText(status,stage){
     status=String(status||'NO_RUN').toUpperCase();
     stage=String(stage||'').toUpperCase();
     const stageMap={
-      WAITING_FOR_FRESH_DATA:ui('Новый анализ создан. Сервер ждёт готовности источников; платный AI-запрос ещё не отправлен.','Die neue Analyse wurde erstellt. Der Server wartet auf bereite Datenquellen; noch wurde keine kostenpflichtige AI-Anfrage gesendet.'),
-      OPENING_SHEETS:ui('Открываю и проверяю Google Sheets. Платный AI-запрос ещё не отправлен.','Google Sheets wird geöffnet und geprüft. Noch wurde keine kostenpflichtige AI-Anfrage gesendet.'),
-      PREPARING_ADS_HISTORY:ui('Подготавливаю историю Google Ads. Неизменившийся export повторно не архивируется. Платный AI-запрос ещё не отправлен.','Google-Ads-Verlauf wird vorbereitet. Ein unveränderter Export wird nicht erneut archiviert. Noch wurde keine kostenpflichtige AI-Anfrage gesendet.'),
+      WAITING_FOR_FRESH_DATA:ui('Новый анализ создан. Сервер ждёт готовности источников; платный KI-запрос ещё не отправлен.','Die neue Analyse wurde erstellt. Der Server wartet auf bereite Datenquellen; noch wurde keine kostenpflichtige KI-Anfrage gesendet.'),
+      OPENING_SHEETS:ui('Открываю и проверяю Google Sheets. Платный KI-запрос ещё не отправлен.','Google Sheets wird geöffnet und geprüft. Noch wurde keine kostenpflichtige KI-Anfrage gesendet.'),
+      PREPARING_ADS_HISTORY:ui('Подготавливаю историю Google Ads. Неизменившийся export повторно не архивируется. Платный KI-запрос ещё не отправлен.','Google-Ads-Verlauf wird vorbereitet. Ein unveränderter Export wird nicht erneut archiviert. Noch wurde keine kostenpflichtige KI-Anfrage gesendet.'),
       BUILDING_CONTEXT:ui('Собираю факты и бизнес-контекст. Платный Senior-запрос ещё не отправлен.','Fakten und Business-Kontext werden vorbereitet. Noch wurde keine kostenpflichtige Senior-Anfrage gesendet.'),
       PREPARING_DAILY_EVIDENCE:ui('Собираю полный завершённый рекламный день активной кампании. Строки Search Terms/Keywords не выбираются выборочно.','Der vollständige abgeschlossene Werbetag der aktiven Kampagne wird aufgebaut. Search-Term-/Keyword-Zeilen werden nicht stichprobenartig ausgewählt.'),
       DAILY_EVIDENCE_SAVED:ui('Полный новый день сохранён. Теперь система решает, нужен ли сегодня сильный Senior.','Der vollständige neue Tag ist gespeichert. Jetzt entscheidet das System, ob heute ein starker Senior nötig ist.'),
@@ -1756,7 +1956,7 @@
       LOCAL_RESEARCH:ui('GPT-5.6 Sol уже определил, что нужно проверить. Выполняю его запросы локально в Google Sheets.','GPT-5.6 Sol hat festgelegt, was geprüft werden muss. Die angeforderten Daten werden lokal in Google Sheets ausgewertet.'),
       PHASE1_COMPLETE:ui('Phase 1 завершена. Контекст и исследование сохранены; серверный фон продолжит Phase 2.','Phase 1 ist abgeschlossen. Kontext und Recherche sind gespeichert; der Server führt Phase 2 fort.'),
       PHASE1_LOCAL_RECOVERY:ui('Research-контракт Sol уже сохранён. Повторяется только локальное исследование без нового платного вызова Sol.','Der Sol-Research-Vertrag ist gespeichert. Nur die lokale Recherche wird ohne neuen kostenpflichtigen Sol-Aufruf wiederholt.'),
-      PHASE2_SAVE_RETRY:ui('Ответ AI уже сохранён. Повторяется только локальная запись результата без нового платного запроса.','Die AI-Antwort ist gespeichert. Nur das lokale Speichern wird ohne neue kostenpflichtige Anfrage wiederholt.'),
+      PHASE2_SAVE_RETRY:ui('Ответ KI уже сохранён. Повторяется только локальная запись результата без нового платного запроса.','Die KI-Antwort ist gespeichert. Nur das lokale Speichern wird ohne neue kostenpflichtige Anfrage wiederholt.'),
       PHASE2_RECOVERY_SCHEDULED:ui('Phase 1 сохранена. Основной запуск Phase 2 не сработал вовремя; автоматическое резервное восстановление уже поставлено в очередь. Phase 1 повторно и платно не запускается.','Phase 1 ist gespeichert. Der normale Phase-2-Start hat nicht rechtzeitig ausgelöst; die automatische Wiederherstellung ist bereits eingeplant. Phase 1 wird nicht erneut kostenpflichtig gestartet.'),
       PHASE2_PREPARING:ui('Подготавливаю сохранённый контекст Phase 2. Новый платный запрос ещё не отправлен.','Der gespeicherte Kontext für Phase 2 wird vorbereitet. Eine neue kostenpflichtige Anfrage wurde noch nicht gesendet.'),
       PHASE2_LUNA_WORKER_STARTED:ui('Targeted evidence большой. GPT-5.6 Luna структурирует только запрошенные Sol данные; стратегическое решение она не принимает.','Die gezielte Evidenz ist umfangreich. GPT-5.6 Luna strukturiert nur die von Sol angeforderten Daten; sie trifft keine strategische Entscheidung.'),
@@ -1770,14 +1970,14 @@
       PHASE2_MODEL_READY:ui('Финальный пакет Senior сохранён: полный новый день + research-контракт Sol + targeted evidence + Luna только при необходимости. Следующий шаг — финальное решение GPT-5.6 Sol.','Das finale Senior-Paket ist gespeichert: vollständiger neuer Tag + Sol-Research-Vertrag + gezielte Evidenz + Luna nur bei Bedarf. Als Nächstes entscheidet GPT-5.6 Sol.'),
       PHASE2_LUNA_CRITIC_STARTED:ui('Совместимый старый этап critic. В V3.50 независимый Controller — Claude Fable 5.1.','Kompatibler alter Critic-Schritt. In V3.50 ist Claude Fable 5.1 der unabhängige Controller.'),
       PHASE2_LUNA_CRITIC_SAVED:ui('Совместимый старый critic-result сохранён.','Kompatibles altes Critic-Ergebnis gespeichert.'),
-      PHASE3_CRITIC_ADJUDICATION_READY:ui('Совместимый старый этап adjudication; новый V3.50 не запускает AI-vs-AI спор автоматически.','Kompatibler alter Adjudication-Schritt; V3.50 startet keine automatische AI-gegen-AI-Debatte.'),
+      PHASE3_CRITIC_ADJUDICATION_READY:ui('Совместимый старый этап adjudication; новый V3.50 не запускает KI-vs-KI спор автоматически.','Kompatibler alter Adjudication-Schritt; V3.50 startet keine automatische KI-gegen-KI-Debatte.'),
       PHASE2_CRITIC_ADJUDICATION_CALL_STARTED:ui('Совместимый старый этап adjudication. Новый поток использует Controller-limit/monitor/human review без бесконечного спора.','Kompatibler alter Adjudication-Schritt. Der neue Ablauf nutzt Controller-Limits/Monitoring/Human Review ohne Endlosschleife.'),
       PHASE2_AI_CALL_STARTED:ui('Финальный запрос отправлен GPT-5.6 Sol — Senior заново сверяет полный новый день, research и доказательства перед решением.','Die finale Anfrage wurde an GPT-5.6 Sol gesendet — der Senior prüft den vollständigen neuen Tag, Research und Evidenz vor der Entscheidung erneut.'),
       PHASE2_EXTRA_RESEARCH:ui('Найден существенный пробел в доказательствах. Выполняю один дополнительный локальный поиск.','Es besteht eine wesentliche Evidenzlücke. Eine zusätzliche lokale Recherche wird durchgeführt.'),
       PHASE2_EXTRA_AI_CALL_STARTED:ui('Дополнительные данные готовы. Уточняющий Senior-запрос отправлен GPT-5.6 Sol.','Zusatzdaten sind fertig. Die klärende Senior-Anfrage wurde an GPT-5.6 Sol gesendet.'),
       PHASE2_FINAL_RECEIVED:ui('Финальный senior-ответ получен. Готовлю безопасное сохранение результата.','Die finale Senior-Antwort ist eingegangen. Das Ergebnis wird sicher gespeichert.'),
-      PHASE2_SAVING:ui('AI уже ответил. Сохраняю рекомендации, память, журнал и итог.','Die AI hat bereits geantwortet. Empfehlungen, Verlauf, Protokoll und Ergebnis werden gespeichert.'),
-      COMPLETE:ui('Последний AI-запуск завершён.','Der letzte AI-Lauf ist abgeschlossen.')
+      PHASE2_SAVING:ui('KI уже ответил. Сохраняю рекомендации, память, журнал и итог.','Die KI hat bereits geantwortet. Empfehlungen, Verlauf, Protokoll und Ergebnis werden gespeichert.'),
+      COMPLETE:ui('Последний KI-запуск завершён.','Der letzte KI-Lauf ist abgeschlossen.')
     };
     if(stageMap[stage]) return stageMap[stage];
     const map={
@@ -1785,14 +1985,14 @@
       PHASE1_RUNNING:ui('Phase 1 из 2 выполняется. Точная стадия будет показана после следующего обновления.','Phase 1 von 2 läuft. Der genaue Schritt wird nach der nächsten Aktualisierung angezeigt.'),
       READY_PHASE2:ui('Phase 1 завершена и сохранена. Серверный orchestrator сам запустит Phase 2; открытый телефон не нужен.','Phase 1 ist abgeschlossen und gespeichert. Der Server-Orchestrator startet Phase 2 selbst; das Telefon muss nicht geöffnet bleiben.'),
       PHASE2_RUNNING:ui('Phase 2 из 2 выполняется.','Phase 2 von 2 läuft.'),
-      FINAL_RECEIVED:ui('Ответ AI уже получен. Сейчас сохраняются рекомендации, журнал и итог.','AI-Antwort liegt vor. Empfehlungen, Protokoll und Ergebnis werden gespeichert.'),
-      COMPLETE:ui('Последний AI-запуск завершён.','Der letzte AI-Lauf ist abgeschlossen.'),
+      FINAL_RECEIVED:ui('Ответ KI уже получен. Сейчас сохраняются рекомендации, журнал и итог.','KI-Antwort liegt vor. Empfehlungen, Protokoll und Ergebnis werden gespeichert.'),
+      COMPLETE:ui('Последний KI-запуск завершён.','Der letzte KI-Lauf ist abgeschlossen.'),
       PHASE1_FAILED:ui('Phase 1 завершилась технической ошибкой. Этот run закрыт; следующий запуск будет новым чистым анализом.','Phase 1 endete mit einem technischen Fehler. Dieser Lauf ist geschlossen; der nächste Start ist eine neue saubere Analyse.'),
       PHASE2_FAILED:ui('Phase 2 завершилась технической ошибкой. Этот run закрыт; следующий запуск создаст новый run_id.','Phase 2 endete mit einem technischen Fehler. Dieser Lauf ist geschlossen; der nächste Start erhält eine neue run_id.'),
       PHASE1_COST_UNCERTAIN:ui('Research Director запрос мог уже уйти в GPT-5.6 Sol, но ответ не подтверждён. Автоповтор заблокирован от двойного списания.','Die Research-Director-Anfrage könnte GPT-5.6 Sol bereits erreicht haben, die Antwort ist aber nicht bestätigt. Ein automatischer Doppelaufruf ist gesperrt.'),
       PHASE2_COST_UNCERTAIN:ui('Финальный Senior-запрос мог уже уйти в GPT-5.6 Sol, но ответ не подтверждён. Автоповтор заблокирован от двойного списания.','Die finale Senior-Anfrage könnte GPT-5.6 Sol bereits erreicht haben, die Antwort ist aber nicht bestätigt. Ein automatischer Doppelaufruf ist gesperrt.'),
       PHASE3_COST_UNCERTAIN:ui('Уточняющий Senior-запрос мог уже уйти в GPT-5.6 Sol, но ответ не подтверждён. Автоповтор заблокирован.','Die zusätzliche Senior-Anfrage könnte GPT-5.6 Sol bereits erreicht haben; die Antwort ist aber nicht bestätigt. Ein automatischer Wiederholungsaufruf ist gesperrt.'),
-      NO_RUN:ui('Сейчас AI не выполняется.','Die AI läuft derzeit nicht.')
+      NO_RUN:ui('Сейчас KI не выполняется.','Die KI läuft derzeit nicht.')
     };
     return map[status]||(ui('Статус: ','Status: ')+status);
   }
@@ -1818,7 +2018,7 @@
     }
     if(busy||failed){
       const prePaidPrep=status==='PHASE1_RUNNING' && ['OPENING_SHEETS','PREPARING_ADS_HISTORY','BUILDING_CONTEXT'].includes(stage);
-      setText('aiLiveTitle',failed?ui('AI-запуск остановился с ошибкой','AI-Lauf wegen Fehler gestoppt'):(prePaidPrep?ui('Подготовка AI-анализа','AI-Analyse wird vorbereitet'):ui('AI сейчас работает','AI arbeitet gerade')));
+      setText('aiLiveTitle',failed?ui('KI-запуск остановился с ошибкой','KI-Lauf wegen Fehler gestoppt'):(prePaidPrep?ui('Подготовка KI-анализа','KI-Analyse wird vorbereitet'):ui('KI сейчас работает','KI arbeitet gerade')));
       if(badge){badge.className='pipeline-badge '+(failed?'red':'yellow');badge.textContent=runStageBadge(status);}
       let txt=runStageText(status,stage);
       if(created) txt+=ui(' Запуск: ',' Lauf: ')+fmtDateTime(created)+'.';
@@ -1839,7 +2039,7 @@
     const err=document.getElementById('serviceAiRunError');
     const tech=document.getElementById('serviceAiRunTech');
     const techText=document.getElementById('serviceAiRunTechText');
-    if(title) title.textContent=busy?ui('Текущий AI-запуск','Aktueller AI-Lauf'):failed?ui('Последний запуск остановлен','Letzter Lauf gestoppt'):ui('AI сейчас не работает','AI läuft gerade nicht');
+    if(title) title.textContent=busy?ui('Текущий KI-запуск','Aktueller KI-Lauf'):failed?ui('Последний запуск остановлен','Letzter Lauf gestoppt'):ui('KI сейчас не работает','KI läuft gerade nicht');
     if(sb){
       sb.className='pipeline-badge '+(busy?'yellow':failed?'red':status==='COMPLETE'?'green':'gray');
       sb.textContent=busy||failed?runStageBadge(status):(status==='COMPLETE'?ui('Готово','Fertig'):ui('Ожидает','Wartet'));
@@ -1885,8 +2085,8 @@
     if(runBtn){
       runBtn.disabled=busy||AI_START_PENDING;
       if(AI_START_PENDING) runBtn.textContent=ui('⏳ Запрос отправлен…','⏳ Anfrage gesendet…');
-      else if(busy) runBtn.textContent=ui('⏳ AI выполняется — дождитесь завершения','⏳ AI läuft — bitte Abschluss abwarten');
-      else runBtn.textContent=ui('🤖 Начать новый AI-анализ','🤖 Neue AI-Analyse starten');
+      else if(busy) runBtn.textContent=ui('⏳ KI выполняется — дождитесь завершения','⏳ KI läuft — bitte Abschluss abwarten');
+      else runBtn.textContent=ui('🤖 Начать новый KI-анализ','🤖 Neue KI-Analyse starten');
     }
   }
 
@@ -1932,11 +2132,11 @@
       report.periods&&report.periods.lifetime?ui('С начала ParkSpot: Ads spend ','Seit ParkSpot-Start: Ads Spend ')+euro(report.periods.lifetime.ads&&report.periods.lifetime.ads.spend)+ui(' · booking value ',' · Buchungsumsatz ')+euro(report.periods.lifetime.ads&&report.periods.lifetime.ads.booking_value):''
     ].filter(Boolean).map(x=>'<div>'+escapeHtml(x)+'</div>').join('');
   }
-
-    function renderForwardDemand(fd){
+  function renderForwardDemand(fd){
     fd=fd||{};
     const status=String(fd.status||'UNAVAILABLE').toUpperCase();
     const statusText=s=>({ACTION_REQUIRED:ui('Нужно действовать','Handlungsbedarf'),EARLY_WARNING:ui('Раннее предупреждение','Frühwarnung'),WATCH:ui('Наблюдать','Beobachten'),OK:ui('По плану','Im Plan'),LOW_CONFIDENCE:ui('Недостаточно данных','Datenbasis dünn'),MATERIALIZED_REFRESH_PENDING:ui('Обновляется','Wird aktualisiert')}[String(s||'').toUpperCase()]||val(s));
+    const statusClass=s=>{s=String(s||'').toUpperCase();return s==='ACTION_REQUIRED'?'action':s==='EARLY_WARNING'?'warning':s==='OK'?'ok':'watch';};
     const req=isFiniteNum(fd.required_google_ads_bookings_per_day)?Number(fd.required_google_ads_bookings_per_day):(isFiniteNum(fd.required_catchup_bookings_per_day)?Number(fd.required_catchup_bookings_per_day):NaN);
     const ads1=isFiniteNum(fd.observed_google_ads_booking_velocity_1d)?Number(fd.observed_google_ads_booking_velocity_1d):NaN;
     const ads3=isFiniteNum(fd.observed_google_ads_booking_velocity_3d)?Number(fd.observed_google_ads_booking_velocity_3d):NaN;
@@ -1949,11 +2149,18 @@
     const reqCard=document.getElementById('fdRequiredCard');if(reqCard)reqCard.classList.toggle('urgent',fd.ads_deadline_action_required===true);
     const el=document.getElementById('forwardWindows'),arr=Array.isArray(fd.windows)?fd.windows:[];
     if(el){el.innerHTML=arr.length?arr.map(w=>{
-      const att=Number(w.comfort_attainment_ratio),pct=Number.isFinite(att)?Math.max(0,Math.min(100,att*100)).toFixed(0)+'%':'—';
+      const att=Number(w.comfort_attainment_ratio),pctNum=Number.isFinite(att)?Math.max(0,Math.min(100,att*100)):NaN,pct=Number.isFinite(pctNum)?pctNum.toFixed(0)+'%':'—';
       const gap=isFiniteNum(w.capacity_gap_space_days)?num0(w.capacity_gap_space_days):'—';
       const seasonal=Number(w.seasonal_pace_available_dates||0),dates=Number(w.dates||0);
-      const hist=seasonal>0?ui(' · сезонный pace для ',' · Saison-Pace für ')+seasonal+'/'+dates+ui(' дней',' Tage'):ui(' · сезонной истории недостаточно',' · Saisonhistorie nicht ausreichend');
-      return `<div class="forward-card"><b>${escapeHtml(w.label||w.key||'—')}</b><strong>${escapeHtml(pct)}</strong><span>${escapeHtml(statusText(w.status))} · ${escapeHtml(ui('остаток до 125: ','Rest bis 125: ')+gap+ui(' место-дней',' Platz-Tage'))}${escapeHtml(hist)}${w.warning_only?' · '+escapeHtml(ui('только предупреждение','nur Frühwarnung')):''}</span></div>`;
+      const hist=seasonal>0?ui('Сезонная история доступна для ','Saison-Pace verfügbar für ')+seasonal+'/'+dates+ui(' дней.',' Tage.'):ui('Надёжной сезонной истории пока недостаточно.','Noch keine belastbare Saisonhistorie.');
+      const warning=w.warning_only?ui(' Это окно только для раннего предупреждения.',' Dieses Fenster dient nur als Frühwarnung.'):'';
+      return `<div class="forward-card">
+        <div class="forward-card-top"><div class="forward-card-title">${escapeHtml(w.label||w.key||'—')}</div><span class="forward-status ${statusClass(w.status)}">${escapeHtml(statusText(w.status))}</span></div>
+        <div class="forward-attainment"><strong>${escapeHtml(pct)}</strong><small>${escapeHtml(ui('цели 125 достигнуто','vom Ziel 125 erreicht'))}</small></div>
+        <div class="forward-progress"><i style="width:${Number.isFinite(pctNum)?pctNum.toFixed(1):0}%"></i></div>
+        <div class="forward-card-main">${escapeHtml(ui('Остаток до 125: ','Rest bis 125: ')+gap+ui(' место-дней.',' Platz-Tage.'))}</div>
+        <details class="forward-details"><summary>${escapeHtml(ui('Подробности','Details'))}</summary><div style="margin-top:5px">${escapeHtml(hist+warning)}</div></details>
+      </div>`;
     }).join(''):`<div class="empty">${escapeHtml(ui('Pipeline ещё не рассчитан','Pipeline noch nicht berechnet'))}</div>`;}
     const missing=isFiniteNum(fd.approx_missing_bookings_to_comfort_0_60)?Number(fd.approx_missing_bookings_to_comfort_0_60):NaN;
     let note=statusText(status)+'. ';
@@ -1978,6 +2185,7 @@
       return `<div class="forward-date"><div><b>${escapeHtml(fmtDate(x.date))}</b><small>${escapeHtml(num0(x.days_ahead)+ui(' дней вперёд · занято ',' Tage voraus · belegt ')+num0(x.booked_now)+'/125'+ui(' · осталось ',' · Rest ')+gap+ui(' · нужно по дате ',' · für diesen Termin nötig ')+reqDay+ui('/день · общий pickup ','/Tag · Gesamt-Pickup ')+pickup+hist)}</small></div><b>${escapeHtml(statusText(x.status))}</b></div>`;
     }).join(''):'';
   }
+
 
   function renderAgentTeam(items){
     const el=document.getElementById('agentTeamGrid');if(!el)return;const arr=Array.isArray(items)?items:[];
@@ -2070,7 +2278,7 @@
   function renderServiceCredits(credits){
     credits=credits||{};const balance=Number(credits.balance);const safe=Number.isFinite(balance)?balance:0;const active=credits.can_start_paid_ai!==undefined?!!credits.can_start_paid_ai:safe>0;
     setText('serviceCreditBalance',num0(safe)+' Credits');
-    const badge=document.getElementById('serviceCreditBadge');if(badge){badge.className='system-status '+(active?'green':'yellow');badge.textContent=active?ui('Можно запускать AI','AI-Start möglich'):ui('Нужны Credits','Credits erforderlich');}
+    const badge=document.getElementById('serviceCreditBadge');if(badge){badge.className='system-status '+(active?'green':'yellow');badge.textContent=active?ui('Можно запускать AI','KI-Start möglich'):ui('Нужны Credits','Credits erforderlich');}
     const last=Number(credits.last_charge||0);setText('serviceCreditLast',last>0?(ui('Последний анализ: −','Letzte Analyse: −')+num0(last)+' Credits'+(credits.last_usage_tier?(' · '+String(credits.last_usage_tier)):'') ):ui('Последний анализ: без списания Credits','Letzte Analyse: keine Credits abgebucht'));
   }
 
@@ -2082,7 +2290,7 @@
 
     const status=String(ai.status||'MISSING').toUpperCase();
     if(status==='RUNNING'){
-      setText('todayAiTitle',ui('Новый AI-анализ сейчас выполняется','Neue AI-Analyse läuft gerade'));
+      setText('todayAiTitle',ui('Новый KI-анализ сейчас выполняется','Neue KI-Analyse läuft gerade'));
       setText('todayAiTime',runStageBadge(ai.current_run_status||''));
       setText('todayAiSummary',runStageText(ai.current_run_status||'',ai.current_run_stage||''));
       setText('todayAiMeta',brief.available&&brief.analysis_time ? ui('Предыдущий сегодняшний анализ был завершён в ','Die vorherige heutige Analyse wurde um ')+brief.analysis_time+ui('. После нового запуска этот блок обновится автоматически.','. abgeschlossen. Nach dem neuen Lauf wird dieser Block automatisch aktualisiert.') : ui('После завершения обеих фаз здесь автоматически появится новый короткий итог.','Nach Abschluss beider Phasen erscheint hier automatisch eine kurze Zusammenfassung.'));
@@ -2091,7 +2299,7 @@
       return;
     }
     if(status==='FAILED'){
-      setText('todayAiTitle',ui('Последний AI-запуск остановился','Der letzte AI-Lauf wurde gestoppt'));
+      setText('todayAiTitle',ui('Последний KI-запуск остановился','Der letzte KI-Lauf wurde gestoppt'));
       setText('todayAiTime',runStageBadge(ai.current_run_status||''));
       setText('todayAiSummary',runStageText(ai.current_run_status||'',ai.current_run_stage||''));
       setText('todayAiMeta',brief.available?ui('Ниже в истории сохранён предыдущий завершённый анализ.','Im Verlauf unten bleibt die vorherige abgeschlossene Analyse gespeichert.'):'');
@@ -2103,7 +2311,7 @@
     if(brief.available){
       setText('todayAiTitle',ui('Анализ завершён','Analyse abgeschlossen'));
       setText('todayAiTime',ui('Сегодня','Heute')+(brief.analysis_time?(' · '+brief.analysis_time):''));
-      setText('todayAiSummary',brief.summary||ui('AI завершил анализ без отдельного изменения стратегии.','AI hat die Analyse ohne separate Strategieänderung abgeschlossen.'));
+      setText('todayAiSummary',brief.summary||ui('KI завершил анализ без отдельного изменения стратегии.','KI hat die Analyse ohne separate Strategieänderung abgeschlossen.'));
 
       const topics=(brief.deep_dive_topics||[]).map(topicLabel).filter(Boolean);
       const parts=[];
@@ -2130,7 +2338,7 @@
     }
 
     if(status==='RUNNING'){
-      setText('todayAiTitle',ui('AI сейчас работает','AI arbeitet gerade'));
+      setText('todayAiTitle',ui('KI сейчас работает','KI arbeitet gerade'));
       setText('todayAiTime',ui('Сегодняшний анализ ещё не завершён','Die heutige Analyse ist noch nicht abgeschlossen'));
       setText('todayAiSummary',ui('После завершения Phase 2 здесь автоматически появится короткий итог.','Nach Abschluss von Phase 2 erscheint hier automatisch eine kurze Zusammenfassung.'));
       setText('todayAiMeta','');
@@ -2138,7 +2346,7 @@
     } else {
       setText('todayAiTitle',ui('Сегодня завершённого анализа нет','Heute gibt es noch keine abgeschlossene Analyse'));
       setText('todayAiTime','');
-      setText('todayAiSummary',ui('Когда ежедневный AI завершит обе фазы, здесь появится его короткое объяснение: что он проверил и к какому выводу пришёл.','Wenn die tägliche AI beide Phasen abgeschlossen hat, erscheint hier eine kurze Erklärung: was geprüft wurde und zu welchem Schluss sie kam.'));
+      setText('todayAiSummary',ui('Когда ежедневный KI завершит обе фазы, здесь появится его короткое объяснение: что он проверил и к какому выводу пришёл.','Wenn die tägliche KI beide Phasen abgeschlossen hat, erscheint hier eine kurze Erklärung: was geprüft wurde und zu welchem Schluss sie kam.'));
       setText('todayAiMeta','');
       if(badge){badge.className='pipeline-badge gray';badge.textContent=ui('Нет записи','Kein Eintrag');}
     }
@@ -2634,10 +2842,10 @@
     if(brokenBtn) brokenBtn.textContent=ms==='GREEN'?ui('🔴 Сообщить о новой проблеме','🔴 Neues Problem melden'):ui('🔴 Всё ещё сломано','🔴 Noch defekt');
     if(hint){
       hint.textContent=ms==='GREEN'
-        ? ui('Tracking подтверждён свежими сигналами. AI может снова использовать conversion-dependent метрики для решений.','Tracking wurde durch frische Signale bestätigt. Die AI darf conversion-abhängige Kennzahlen wieder für Entscheidungen nutzen.')
+        ? ui('Tracking подтверждён свежими сигналами. KI может снова использовать conversion-dependent метрики для решений.','Tracking wurde durch frische Signale bestätigt. Die KI darf conversion-abhängige Kennzahlen wieder für Entscheidungen nutzen.')
         : ms==='YELLOW'
-          ? ui('Вы сообщили, что tracking исправлен. AI уже знает это, но до свежего реального conversion signal остаётся режим проверки.','Sie haben gemeldet, dass Tracking repariert wurde. Die AI weiß das; bis zu einem frischen echten Conversion-Signal bleibt der Prüfmodus aktiv.')
-          : ui('Если tracking уже исправлен, нажмите «Исправлено — начать проверку». AI узнает об этом сразу; зелёный статус появится только после свежего реального conversion signal.','Wenn Tracking bereits repariert ist, „Repariert — Prüfung starten“ drücken. Die AI erfährt es sofort; Grün erscheint erst nach einem frischen echten Conversion-Signal.');
+          ? ui('Вы сообщили, что tracking исправлен. KI уже знает это, но до свежего реального conversion signal остаётся режим проверки.','Sie haben gemeldet, dass Tracking repariert wurde. Die KI weiß das; bis zu einem frischen echten Conversion-Signal bleibt der Prüfmodus aktiv.')
+          : ui('Если tracking уже исправлен, нажмите «Исправлено — начать проверку». KI узнает об этом сразу; зелёный статус появится только после свежего реального conversion signal.','Wenn Tracking bereits repariert ist, „Repariert — Prüfung starten“ drücken. Die KI erfährt es sofort; Grün erscheint erst nach einem frischen echten Conversion-Signal.');
     }
 
     const af=h.ads_freshness||{};
@@ -2734,7 +2942,7 @@
     items=Array.isArray(items)?items:[];
     const jc=document.getElementById('journalContext');
     if(jc) jc.textContent=items.length?(fmtDate(items[0].analysis_date)+' · '+(items[0].script_version?('V'+items[0].script_version):ui('старая версия','ältere Version'))):ui('Нет завершённых анализов','Keine abgeschlossenen Analysen');
-    if(!items.length){el.innerHTML='<div class="empty">'+ui('Журнал пока пуст. После завершённого AI-анализа здесь появится запись.','Der Verlauf ist noch leer. Nach einer abgeschlossenen AI-Analyse erscheint hier ein Eintrag.')+'</div>';if(more)more.style.display='none';return;}
+    if(!items.length){el.innerHTML='<div class="empty">'+ui('Журнал пока пуст. После завершённого KI-анализа здесь появится запись.','Der Verlauf ist noch leer. Nach einer abgeschlossenen KI-Analyse erscheint hier ein Eintrag.')+'</div>';if(more)more.style.display='none';return;}
     const shown=items.slice(0,JOURNAL_VISIBLE);
     el.innerHTML=shown.map(l=>{
       const h=String(l.health||'YELLOW').toUpperCase(),healthCls=h==='GREEN'?'green':h==='RED'?'red':'yellow',healthIcon=h==='GREEN'?'🟢':h==='RED'?'🔴':'🟡';
@@ -2976,14 +3184,14 @@
         ${executionChipHtml(a)}
         ${executionPreviewHtml(a)}
         ${a.execution_reason?`<div class="small-note">${escapeHtml(cleanOwnerText(a.execution_reason))}</div>`:''}
-        <input class="comment" id="comment-${escId(a.rec_id)}" placeholder="${ui('Комментарий или вопрос для AI (необязательно)','Kommentar oder Frage an die AI (optional)')}" value="${escapeAttr(a.comment||'')}">
+        <input class="comment" id="comment-${escId(a.rec_id)}" placeholder="${ui('Комментарий или вопрос для KI (необязательно)','Kommentar oder Frage an die KI (optional)')}" value="${escapeAttr(a.comment||'')}">
         <div class="button-row">
           ${canApproveAndExecute(a)?`<button type="button" id="approve-exec-${escId(a.rec_id)}" class="btn approve" onclick="approveAndExecute('${jsStr(a.rec_id)}','${jsStr(a.proposal_hash||'')}')">${ui('✅ Подтвердить и автоматически выполнить','✅ Freigeben & automatisch ausführen')}</button>`:`<button class="btn approve" onclick="decide('${jsStr(a.rec_id)}','APPROVED')">${ui('✅ Согласен','✅ Zustimmen')}</button>`}
           <button class="btn reject" onclick="decide('${jsStr(a.rec_id)}','REJECTED')">${ui('❌ Отказать','❌ Ablehnen')}</button>
           ${a.execution_supported?``:`<button class="btn done" onclick="decide('${jsStr(a.rec_id)}','APPLIED')">${ui('☑ Сделано','☑ Erledigt')}</button>`}
         </div>
         <div class="why-inline"><button class="why-btn" type="button" onclick="startWhyInvestigation({question_type:'WHY_RECOMMENDATION',metric:'CPA',rec_id:'${jsStr(a.rec_id)}',current_period:'CURRENT',comparison_period:'EVIDENCE'})">${ui('Почему эта рекомендация?','Warum diese Empfehlung?')}</button></div>
-        <button class="question-btn" onclick="askOwnerQuestion('${jsStr(a.rec_id)}')">${ui('❓ Задать этот вопрос AI','❓ Diese Frage an die AI stellen')}</button>
+        <button class="question-btn" onclick="askOwnerQuestion('${jsStr(a.rec_id)}')">${ui('❓ Задать этот вопрос AI','❓ Diese Frage an die KI stellen')}</button>
         <div class="small-note">${ui('Комментарий при ✅/❌/☑ сохраняется вместе с вашим решением. Вопрос не меняет статус рекомендации.','Kommentar bei ✅/❌/☑ wird mit Ihrer Entscheidung gespeichert. Eine Frage ändert den Empfehlungsstatus nicht.')}</div>
         <div class="small-note">${ui('Статус: ','Status: ')}${escapeHtml(a.status||'—')}</div>
       </div>
@@ -3016,8 +3224,8 @@
 
           <textarea class="comment approved-note" id="approved-note-${escId(a.rec_id)}"
             placeholder="${diagnostic
-              ? ui('Результат проверки для AI. Например: на сайте бронирования есть, а Google Ads показывает 0 конверсий — tracking не работает.','Prüfergebnis für die AI. Beispiel: Auf der Website gibt es Buchungen, Google Ads zeigt aber 0 Conversions — Tracking funktioniert nicht.')
-              : ui('Заметка или вопрос для AI (необязательно)','Notiz oder Frage an die AI (optional)')}">${escapeHtml(a.comment||'')}</textarea>
+              ? ui('Результат проверки для KI. Например: на сайте бронирования есть, а Google Ads показывает 0 конверсий — tracking не работает.','Prüfergebnis für die KI. Beispiel: Auf der Website gibt es Buchungen, Google Ads zeigt aber 0 Conversions — Tracking funktioniert nicht.')
+              : ui('Заметка или вопрос для KI (необязательно)','Notiz oder Frage an die KI (optional)')}">${escapeHtml(a.comment||'')}</textarea>
 
           <div class="approved-note-actions">
             <button class="note-save" onclick="saveOwnerNote('${jsStr(a.rec_id)}')">${ui('💾 Сохранить заметку','💾 Notiz speichern')}</button>
@@ -3030,10 +3238,10 @@
                       : `<button class="approved-done" onclick="decide('${jsStr(a.rec_id)}','APPLIED',true)">${ui('☑ Сделано','☑ Erledigt')}</button>`))}
           </div>
           <div class="why-inline"><button class="why-btn" type="button" onclick="startWhyInvestigation({question_type:'WHY_RECOMMENDATION',metric:'CPA',rec_id:'${jsStr(a.rec_id)}',current_period:'CURRENT',comparison_period:'EVIDENCE'})">${ui('Почему эта рекомендация?','Warum diese Empfehlung?')}</button></div>
-          <button class="question-btn" onclick="askOwnerQuestion('${jsStr(a.rec_id)}')">${ui('❓ Задать вопрос AI по этой рекомендации','❓ Frage zur Empfehlung an die AI')}</button>
+          <button class="question-btn" onclick="askOwnerQuestion('${jsStr(a.rec_id)}')">${ui('❓ Задать вопрос KI по этой рекомендации','❓ Frage zur Empfehlung an die KI')}</button>
 
           <div class="approved-hint">${diagnostic
-              ? ui('«Проверил» закрывает только эту проверку. Это НЕ означает, что проблема исправлена. AI получит ваш результат и решит следующий шаг.','„Geprüft“ schließt nur diese Prüfung. Das bedeutet NICHT, dass das Problem behoben ist. Die AI erhält Ihr Ergebnis und entscheidet den nächsten Schritt.')
+              ? ui('«Проверил» закрывает только эту проверку. Это НЕ означает, что проблема исправлена. KI получит ваш результат и решит следующий шаг.','„Geprüft“ schließt nur diese Prüfung. Das bedeutet NICHT, dass das Problem behoben ist. Die KI erhält Ihr Ergebnis und entscheidet den nächsten Schritt.')
               : (a.execution_supported
                   ? ui('Ваше подтверждение относится только к точной показанной версии. ParkSpot сначала проверяет Dry Run, затем выполняет её через Controlled Google Ads Execution и подтверждает AFTER.','Ihre Freigabe gilt nur für die exakt angezeigte Version. Danach läuft alles automatisch: Sicherheitsprüfung, kontrollierte Google-Ads-Ausführung und Abschlussprüfung. Kein weiterer Klick nötig.')
                   : ui('«Сделано» означает, что вы реально выполнили предложенное изменение.','„Erledigt“ bedeutet, dass Sie die vorgeschlagene Änderung tatsächlich umgesetzt haben.'))}</div>
@@ -3083,14 +3291,22 @@
     const confidence=document.getElementById('whyInvestigationConfidence');
     const st=String(inv.status||'').toUpperCase();
     if(answer){
-      if(st==='ANSWERED') answer.textContent=inv.answer||ui('Разбор завершён, но текст ответа отсутствует.','Die Untersuchung ist abgeschlossen, aber der Antworttext fehlt.');
-      else if(st==='FAILED'||st==='COST_UNCERTAIN') answer.textContent=inv.owner_message||ui('AI-разбор не завершился. Google Ads не изменялись.','Die AI-Untersuchung wurde nicht abgeschlossen. Google Ads wurden nicht geändert.');
+      if(st==='ANSWERED'){
+        const j=inv.answer_json&&typeof inv.answer_json==='object'?inv.answer_json:{};
+        const main=j.main_factor||j.headline||j.conclusion||inv.answer||ui('Разбор завершён.','Untersuchung abgeschlossen.');
+        const conclusion=j.conclusion&&j.conclusion!==main?j.conclusion:'';
+        const detail=inv.answer||'';
+        answer.innerHTML='<div class="why-section"><b>'+escapeHtml(ui('Коротко','Kurz gesagt'))+'</b>'+escapeHtml(main)+'</div>'+
+          (conclusion?'<div class="why-section"><b>'+escapeHtml(ui('Что это значит','Was das bedeutet'))+'</b>'+escapeHtml(conclusion)+'</div>':'')+
+          (detail?'<details class="why-section"><summary style="cursor:pointer;font-weight:850;color:#64748b">'+escapeHtml(ui('Подробный разбор','Vollständige Details'))+'</summary><div style="margin-top:7px;white-space:pre-line">'+escapeHtml(detail)+'</div></details>':'');
+      }
+      else if(st==='FAILED'||st==='COST_UNCERTAIN') answer.textContent=inv.owner_message||ui('KI-разбор не завершился. Google Ads не изменялись.','Die KI-Tiefenanalyse wurde nicht abgeschlossen. Google Ads wurden nicht geändert.');
       else answer.textContent=ui('Можно продолжать пользоваться приложением — этот разбор выполняется отдельно.','Sie können die App weiter verwenden – diese Untersuchung läuft separat.');
     }
     if(confidence){
       const c=String(inv.confidence_label||'').toUpperCase();
       confidence.style.display=(st==='ANSWERED'&&c)?'block':'none';
-      confidence.textContent=c?('Confidence: '+c):'';
+      confidence.textContent=c?('Sicherheit: '+c):'';
     }
   }
 
@@ -3149,15 +3365,15 @@
         WHY_START_PENDING=false;setWhyButtonsDisabled(false);
         if(!res||!res.ok){
           const msg=res&&res.code==='INSUFFICIENT_CREDITS'
-            ? ui('AI-разбор временно недоступен. Пополните Credits для нового анализа.','AI-Untersuchung vorübergehend nicht verfügbar. Bitte Credits für eine neue Analyse aufladen.')
-            : ((res&&res.message)||ui('Не удалось начать AI-разбор.','AI-Untersuchung konnte nicht gestartet werden.'));
+            ? ui('KI-разбор временно недоступен. Пополните Credits для нового анализа.','KI-Tiefenanalyse vorübergehend nicht verfügbar. Bitte Credits für eine neue Analyse aufladen.')
+            : ((res&&res.message)||ui('Не удалось начать KI-разбор.','KI-Tiefenanalyse konnte nicht gestartet werden.'));
           openWhyInvestigationPanel({status:'FAILED',owner_text:ui('Почему?','Warum?'),owner_message:msg});return;
         }
         handleWhyInvestigationState(res.investigation||{});
       })
       .withFailureHandler(function(){
         WHY_START_PENDING=false;setWhyButtonsDisabled(false);
-        openWhyInvestigationPanel({status:'FAILED',owner_text:ui('Почему?','Warum?'),owner_message:ui('Не удалось начать AI-разбор. Повторите позже.','AI-Untersuchung konnte nicht gestartet werden. Bitte später erneut versuchen.')});
+        openWhyInvestigationPanel({status:'FAILED',owner_text:ui('Почему?','Warum?'),owner_message:ui('Не удалось начать KI-разбор. Повторите позже.','KI-Tiefenanalyse konnte nicht gestartet werden. Bitte später erneut versuchen.')});
       })
       .webAppStartWhyInvestigation(req);
   }
@@ -3174,44 +3390,47 @@
 
 
   function renderOwnerFeedback(items){
-    const el=document.getElementById('ownerFeedbackPanel');
-    if(!el) return;
-    const rows=(items||[]).filter(function(x){const t=String(x.feedback_type||'').toUpperCase();return t==='QUESTION'||t==='WHY';}).slice(0,12);
-    if(!rows.length){
-      el.innerHTML='<div class="small-note">'+ui('Здесь появятся ваши вопросы, быстрые разборы «Почему?» и ответы AI.','Hier erscheinen Ihre Fragen, schnellen „Warum?“-Untersuchungen und AI-Antworten.')+'</div>';
-      return;
+    const el=document.getElementById('ownerFeedbackPanel');if(!el)return;
+    const all=Array.isArray(items)?items:[];
+    const chatRows=all.filter(function(x){const t=String(x.feedback_type||'').toUpperCase(),qt=String(x.question_type||'').toUpperCase();return t==='CHAT'||t==='QUESTION'||(t==='WHY'&&qt==='KI_CHAT_GENERAL');}).slice(0,12).reverse();
+    const legacy=all.filter(function(x){return String(x.feedback_type||'').toUpperCase()==='WHY'&&String(x.question_type||'').toUpperCase()!=='KI_CHAT_GENERAL';}).slice(0,12);
+    if(!chatRows.length){
+      el.innerHTML='<div class="small-note">'+ui('Задайте свой вопрос — ParkSpot сначала ответит из уже имеющихся данных.','Stellen Sie Ihre Frage – ParkSpot antwortet zuerst aus bereits vorhandenen Daten.')+'</div>';
+    }else{
+      el.innerHTML=chatRows.map(function(x){
+        const st=String(x.status||'').toUpperCase(),answered=!!x.answer,created=x.created_at?fmtDateTime(x.created_at):'',qt=String(x.question_type||'').toUpperCase();
+        let assistant='';
+        if(st==='QUEUED'||st==='RUNNING')assistant=ui('Глубокий KI-разбор выполняется…','KI-Tiefenanalyse läuft…');
+        else if(st==='FAILED'||st==='COST_UNCERTAIN')assistant=ui('Глубокий разбор не завершён. Google Ads не изменялись.','Tiefenanalyse nicht abgeschlossen. Google Ads wurden nicht verändert.');
+        else if(st==='PENDING')assistant=answered?x.answer:ui('Вопрос сохранён для следующего полного KI-анализа.','Frage für den nächsten vollständigen KI-Lauf vorgemerkt.');
+        else assistant=x.answer||'';
+        const pendingNote=st==='PENDING'?`<div class="ki-message-meta">${escapeHtml(ui('Ждёт следующего полного KI-анализа','Für nächsten vollständigen KI-Lauf vorgemerkt'))}</div>`:'';
+        const conf=x.confidence_label?`<div class="ki-message-meta">Sicherheit: ${escapeHtml(String(x.confidence_label).toUpperCase())}${created?' · '+escapeHtml(created):''}</div>`:(created?`<div class="ki-message-meta">${escapeHtml(created)}</div>`:'');
+        let ev={};try{ev=typeof x.answer_evidence==='string'?JSON.parse(x.answer_evidence||'{}'):(x.answer_evidence||{});}catch(e){ev={};}
+        let actions='';
+        if(String(x.feedback_type||'').toUpperCase()==='CHAT'&&st==='ANSWERED'&&(ev.queue_suggested||ev.deep_suggested)){
+          const buttons=[];
+          if(ev.queue_suggested)buttons.push(`<button class="ki-action-btn" type="button" onclick="queueKiChatForNextRun('${jsStr(x.feedback_id||'')}')">${escapeHtml(ui('Для следующего KI-анализа','Für nächsten KI-Lauf vormerken'))}</button>`);
+          if(ev.deep_suggested)buttons.push(`<button class="ki-action-btn primary" type="button" onclick="startKiChatDeepQuestion('${jsStr(x.owner_text||'')}',${Math.max(1,Number(ev.deep_credit_cost)||2)})">${escapeHtml(ui('Глубокий разбор','Tiefenanalyse'))} · ${Math.max(1,Number(ev.deep_credit_cost)||2)} Credits</button>`);
+          actions=`<div class="ki-chat-actions">${buttons.join('')}</div>`;
+        }
+        return `<div class="ki-message user">${escapeHtml(x.owner_text||'')}</div><div class="ki-message assistant">${escapeHtml(assistant)}${conf}${pendingNote}${x.follow_up?`<div class="ki-message-meta">${escapeHtml(ui('Дальше: ','Weiter: ')+x.follow_up)}</div>`:''}${actions}</div>`;
+      }).join('');
+      setTimeout(function(){el.scrollTop=el.scrollHeight;},0);
     }
-    el.innerHTML=rows.map(function(x){
-      const type=String(x.feedback_type||'').toUpperCase(),st=String(x.status||'').toUpperCase();
-      const answered=st==='ANSWERED'&&x.answer;
-      if(type==='WHY'){
-        const pending=st==='QUEUED'||st==='RUNNING';
-        const failed=st==='FAILED'||st==='COST_UNCERTAIN';
-        return `<div class="feedback-item">
-          <div class="feedback-q">🔎 ${escapeHtml(x.owner_text||ui('Почему?','Warum?'))}</div>
-          ${answered
-            ? `<div class="feedback-a">${escapeHtml(x.answer||'')}${x.confidence_label?`<div class="small-note">Confidence: ${escapeHtml(String(x.confidence_label).toUpperCase())}</div>`:''}${x.follow_up?`<div class="small-note">${ui('Дальше: ','Weiter: ')}${escapeHtml(x.follow_up)}</div>`:''}</div>`
-            : pending
-              ? `<div class="feedback-pending">${ui('ParkSpot исследует причину…','ParkSpot untersucht die Ursache…')}</div>`
-              : failed
-                ? `<div class="feedback-pending">${ui('Разбор не завершён. Google Ads не изменялись.','Untersuchung nicht abgeschlossen. Google Ads wurden nicht geändert.')}</div>`
-                : ''}
-        </div>`;
-      }
-      return `<div class="feedback-item">
-        <div class="feedback-q">❓ ${escapeHtml(x.owner_text||'')}</div>
-        ${answered
-          ? `<div class="feedback-a"><b>AI:</b> ${escapeHtml(x.answer||'')}${x.follow_up?`<div class="small-note">${ui('Дальше: ','Weiter: ')}${escapeHtml(x.follow_up)}</div>`:''}</div>`
-          : `<div class="feedback-pending">${ui('Ожидает следующего полного AI-анализа.','Wartet auf die nächste vollständige AI-Analyse.')}</div>`}
-      </div>`;
-    }).join('');
+    const archive=document.getElementById('legacyWhyArchive'),list=document.getElementById('legacyWhyArchiveList');
+    if(archive&&list){
+      archive.style.display=legacy.length?'block':'none';
+      list.innerHTML=legacy.map(function(x){const id=String(x.investigation_id||x.feedback_id||'');return `<div class="ki-archive-item"><b>${escapeHtml(x.owner_text||ui('Старый разбор причины','Früherer Ursachenbericht'))}</b><div>${escapeHtml((x.created_at?fmtDateTime(x.created_at):'')+(x.confidence_label?' · Confidence '+String(x.confidence_label).toUpperCase():''))}</div>${id?`<button class="ki-archive-open" type="button" onclick="openStoredWhyInvestigation('${jsStr(id)}')">${escapeHtml(ui('Открыть','Öffnen'))}</button>`:''}</div>`;}).join('');
+    }
   }
+
 
   function askOwnerQuestion(recId){
     const c=document.getElementById('approved-note-'+escId(recId)) || document.getElementById('comment-'+escId(recId));
     const text=c?c.value.trim():'';
     if(!text){toast(ui('Напишите вопрос в поле выше.','Schreiben Sie oben eine Frage.')); if(c)c.focus(); return;}
-    if(!confirm(ui('Сохранить это как вопрос AI? Статус рекомендации не изменится.','Als Frage an die AI speichern? Der Empfehlungsstatus ändert sich nicht.'))) return;
+    if(!confirm(ui('Сохранить это как вопрос AI? Статус рекомендации не изменится.','Als Frage an die KI speichern? Der Empfehlungsstatus ändert sich nicht.'))) return;
     toast(ui('❓ Сохраняю вопрос…','❓ Frage wird gespeichert…'));
     google.script.run
       .withSuccessHandler(res=>{toast((res&&res.message)||ui('Вопрос сохранён.','Frage gespeichert.')); if(c)c.value=''; setTimeout(()=>loadData(true),500);})
@@ -3222,13 +3441,22 @@
   function askGeneralQuestion(){
     const c=document.getElementById('generalAiQuestion');
     const text=c?c.value.trim():'';
-    if(!text){toast(ui('Напишите вопрос для AI.','Schreiben Sie eine Frage an die AI.')); if(c)c.focus(); return;}
-    toast(ui('❓ Сохраняю вопрос…','❓ Frage wird gespeichert…'));
+    if(!text){toast(ui('Напишите вопрос для KI.','Schreiben Sie eine Frage an die KI.')); if(c)c.focus(); return;}
+    if(KI_CHAT_PENDING)return;
+    KI_CHAT_LAST_QUESTION=text;setKiChatBusy(true);
     google.script.run
-      .withSuccessHandler(res=>{if(c)c.value='';toast((res&&res.message)||ui('Вопрос сохранён.','Frage gespeichert.'));setTimeout(()=>loadData(true),500);})
-      .withFailureHandler(err=>showError(err))
-      .webAppOwnerQuestion('',text);
+      .withSuccessHandler(function(res){
+        setKiChatBusy(false);
+        if(!res||!res.ok){toast((res&&res.message)||ui('Не удалось получить ответ.','Antwort konnte nicht erstellt werden.'));return;}
+        KI_CHAT_LAST_FEEDBACK_ID=String(res.feedback_id||'');
+        KI_CHAT_LAST_DEEP_COST=Math.max(1,Number(res.deep_credit_cost)||2);
+        if(c)c.value='';appendLocalKiChatTurn(text,res);
+        setTimeout(()=>loadData(true),900);
+      })
+      .withFailureHandler(function(err){setKiChatBusy(false);showError(err);})
+      .webAppKiChatQuickAnswer(text,CURRENT_LANG);
   }
+
 
   function renderAds(ads){
     ads=ads||{};
@@ -3300,7 +3528,7 @@
     if(el){
       if(count>0 || recCount>0){
         el.className='future-log-note show';
-        el.textContent=ui('⚠️ Обнаружены AI-данные с будущей датой','⚠️ AI-Daten mit einem zukünftigen Datum wurden erkannt') +
+        el.textContent=ui('⚠️ Обнаружены KI-данные с будущей датой','⚠️ KI-Daten mit einem zukünftigen Datum wurden erkannt') +
           (g.latest_ignored_future_date ? (' ('+fmtDate(g.latest_ignored_future_date)+')') : '') +
           ui('. Они скрыты и не считаются актуальными.','. Sie sind ausgeblendet und gelten nicht als aktuell.') +
           (recCount ? (ui(' Будущих рекомендаций: ',' Zukünftige Empfehlungen: ')+recCount+'.') : '');
@@ -3315,7 +3543,7 @@
         serviceWarn.textContent=ui('⚠️ Скрыто строк unified exporter с действительно будущей датой: ','⚠️ Unified-Exporter-Zeilen mit tatsächlich zukünftigem Datum ausgeblendet: ')+exportCount+'.';
       } else if(exportClockAnomaly){
         serviceWarn.style.display='block';
-        serviceWarn.textContent=ui('ℹ️ Unified Ads exporter успешен за сегодня, но его exported_at имеет сдвиг часов','ℹ️ Unified Ads Exporter ist heute erfolgreich, aber exported_at hat eine Zeitverschiebung')+(exportClockAnomalyRows?(' · '+exportClockAnomalyRows):'')+ui('. V3.27 использует report_date и не блокирует AI.','. V3.27 nutzt report_date und blockiert die AI deshalb nicht.');
+        serviceWarn.textContent=ui('ℹ️ Unified Ads exporter успешен за сегодня, но его exported_at имеет сдвиг часов','ℹ️ Unified Ads Exporter ist heute erfolgreich, aber exported_at hat eine Zeitverschiebung')+(exportClockAnomalyRows?(' · '+exportClockAnomalyRows):'')+ui('. V3.27 использует report_date и не блокирует KI.','. V3.27 nutzt report_date und blockiert die KI deshalb nicht.');
       } else {
         serviceWarn.style.display='none'; serviceWarn.textContent='';
       }
@@ -3424,12 +3652,12 @@
     }
     if(text){
       text.textContent=enabled
-        ? ui('Новый ежедневный AI-анализ может запускаться автоматически после готовности данных.','Eine neue tägliche AI-Analyse kann automatisch starten, sobald die Daten bereit sind.')
-        : ui('Новые ежедневные AI-анализы автоматически не создаются. Ручной запуск работает.','Neue tägliche AI-Analysen werden nicht automatisch erstellt. Der manuelle Start funktioniert weiterhin.');
+        ? ui('Новый ежедневный KI-анализ может запускаться автоматически после готовности данных.','Eine neue tägliche KI-Analyse kann automatisch starten, sobald die Daten bereit sind.')
+        : ui('Новые ежедневные KI-анализы автоматически не создаются. Ручной запуск работает.','Neue tägliche KI-Analysen werden nicht automatisch erstellt. Der manuelle Start funktioniert weiterhin.');
     }
     if(btn){
       btn.className='mini-btn '+(enabled?'warn':'ok');
-      btn.textContent=enabled?ui('⏸ Выключить авто AI','⏸ AI-Auto ausschalten'):ui('▶️ Включить авто AI','▶️ AI-Auto einschalten');
+      btn.textContent=enabled?ui('⏸ Выключить авто AI','⏸ KI-Auto ausschalten'):ui('▶️ Включить авто AI','▶️ KI-Auto einschalten');
     }
   }
 
@@ -3438,10 +3666,10 @@
     const bg=(APP&&APP.background_system)||{};
     const enabled=bg.ai_auto_enabled!==undefined?!!bg.ai_auto_enabled:!!bg.enabled;
     const msg=enabled
-      ? ui('Выключить автоматические ежедневные AI-анализы? Текущий активный анализ, если он уже запущен, не будет прерван. Ручной запуск останется доступен.','Automatische tägliche AI-Analysen ausschalten? Eine bereits laufende Analyse wird nicht abgebrochen. Der manuelle Start bleibt verfügbar.')
-      : ui('Включить автоматические ежедневные AI-анализы? Система снова сможет сама запускать новый анализ после готовности данных.','Automatische tägliche AI-Analysen einschalten? Das System darf dann wieder selbst eine neue Analyse starten, sobald die Daten bereit sind.');
+      ? ui('Выключить автоматические ежедневные KI-анализы? Текущий активный анализ, если он уже запущен, не будет прерван. Ручной запуск останется доступен.','Automatische tägliche KI-Analysen ausschalten? Eine bereits laufende Analyse wird nicht abgebrochen. Der manuelle Start bleibt verfügbar.')
+      : ui('Включить автоматические ежедневные KI-анализы? Система снова сможет сама запускать новый анализ после готовности данных.','Automatische tägliche KI-Analysen einschalten? Das System darf dann wieder selbst eine neue Analyse starten, sobald die Daten bereit sind.');
     if(!confirm(msg)) return;
-    toast(enabled?ui('Выключаю авто AI…','AI-Auto wird ausgeschaltet…'):ui('Включаю авто AI…','AI-Auto wird eingeschaltet…'));
+    toast(enabled?ui('Выключаю авто KI…','KI-Auto wird ausgeschaltet…'):ui('Включаю авто KI…','KI-Auto wird eingeschaltet…'));
     const runner=google.script.run
       .withSuccessHandler(res=>{
         if(!APP) APP={};
@@ -3468,10 +3696,10 @@
     const bad=status==='COST_UNCERTAIN';
     const warn=status==='TECHNICAL_RETRY'||status==='WAITING_FOR_FRESH_DATA'||status==='WAITING_FOR_CREDITS';
     badge.className='system-status '+(bad?'red':(enabled?(warn?'yellow':'green'):'gray'));
-    badge.textContent=bad?ui('🔴 Нужна проверка','🔴 Prüfung nötig'):(enabled?ui('🟢 AI авто включён','🟢 AI-Auto aktiv'):ui('⚪ AI авто выключен','⚪ AI-Auto aus'));
+    badge.textContent=bad?ui('🔴 Нужна проверка','🔴 Prüfung nötig'):(enabled?ui('🟢 KI авто включён','🟢 KI-Auto aktiv'):ui('⚪ KI авто выключен','⚪ KI-Auto aus'));
     const parts=[];
-    parts.push(enabled?ui('ежедневный AI: авто','tägliche AI: automatisch'):ui('ежедневный AI: только вручную','tägliche AI: nur manuell'));
-    if(bg.last_heartbeat) parts.push(ui('AI heartbeat ','AI-Heartbeat ')+fmtDateTime(bg.last_heartbeat));
+    parts.push(enabled?ui('ежедневный KI: авто','tägliche KI: automatisch'):ui('ежедневный KI: только вручную','tägliche KI: nur manuell'));
+    if(bg.last_heartbeat) parts.push(ui('KI heartbeat ','KI-Heartbeat ')+fmtDateTime(bg.last_heartbeat));
     if(bg.app_data_last_refresh) parts.push(ui('APP_DATA ','APP_DATA ')+fmtDateTime(bg.app_data_last_refresh)+(Number(bg.app_data_interval_minutes||0)>0?(ui(' · каждые ',' · alle ')+bg.app_data_interval_minutes+ui(' мин',' Min.')):ui(' · по событиям',' · ereignisgesteuert')));
     if(bg.policy_version) parts.push('Policy '+String(bg.policy_version)+(bg.v319_cleanup_done?ui(' · cleanup ✓',' · cleanup ✓'):ui(' · cleanup ожидается',' · cleanup ausstehend')));
     if(bg.status) parts.push(String(bg.status));
@@ -3486,7 +3714,7 @@
 
   function setupBackgroundSystem(){
     if(!requireLocalService()) return;
-    if(!confirm(ui('Настроить серверный фон: AI watchdog каждые 120 мин., Booking API каждые 30 мин., APP_DATA — только по событиям? После этого телефон можно закрывать.','Server-Hintergrund einrichten: AI-Watchdog alle 120 Min., Booking API alle 30 Min., APP_DATA nur ereignisgesteuert? Danach kann das Telefon geschlossen werden.'))) return;
+    if(!confirm(ui('Настроить серверный фон: KI watchdog каждые 120 мин., Booking API каждые 30 мин., APP_DATA — только по событиям? После этого телефон можно закрывать.','Server-Hintergrund einrichten: KI-Watchdog alle 120 Min., Booking API alle 30 Min., APP_DATA nur ereignisgesteuert? Danach kann das Telefon geschlossen werden.'))) return;
     setLoading(true,ui('Настраиваю фоновую систему…','Hintergrundsystem wird eingerichtet…'));
     google.script.run
       .withSuccessHandler(res=>{
@@ -3633,7 +3861,7 @@
       if(text) text.textContent=ui('Admin-PIN ещё не настроен. В Script Properties добавьте PARKSPOT_SERVICE_PIN, затем обновите приложение.','Admin-PIN ist noch nicht eingerichtet. PARKSPOT_SERVICE_PIN in Script Properties hinzufügen und die App aktualisieren.');
       if(input) input.disabled=true;
     } else {
-      if(text) text.textContent=ui('Введите PIN владельца. Здесь находятся Booking API, резервный CSV, ручной запуск AI и технические действия.','Eigentümer-PIN eingeben. Hier befinden sich Booking API, CSV-Reserve, manueller AI-Start und technische Aktionen.');
+      if(text) text.textContent=ui('Введите PIN владельца. Здесь находятся Booking API, резервный CSV, ручной запуск KI и технические действия.','Eigentümer-PIN eingeben. Hier befinden sich Booking API, CSV-Reserve, manueller KI-Start und technische Aktionen.');
       if(input) input.disabled=false;
     }
   }
@@ -3735,7 +3963,7 @@
     };
 
     if(decision==='CHECKED' && !comment){
-      toast(ui('Напишите короткий результат проверки для AI.','Bitte ein kurzes Prüfergebnis für die AI eingeben.'));
+      toast(ui('Напишите короткий результат проверки для KI.','Bitte ein kurzes Prüfergebnis für die KI eingeben.'));
       if(c) c.focus();
       return;
     }
@@ -3767,7 +3995,7 @@
         decision==='REJECTED'
           ? ui('❌ Отклонено. Сохраняю…','❌ Abgelehnt. Wird gespeichert…')
           : decision==='CHECKED'
-            ? ui('✅ Результат проверки сохранён. Передаю AI…','✅ Prüfergebnis gespeichert. Wird an die AI übergeben…')
+            ? ui('✅ Результат проверки сохранён. Передаю KI…','✅ Prüfergebnis gespeichert. Wird an die KI übergeben…')
             : ui('☑ Сделано. Сохраняю…','☑ Erledigt. Wird gespeichert…')
       );
     }
@@ -3788,7 +4016,7 @@
   function measurementAction(action){
     if(!requireLocalService()) return;
     const msg=action==='START_RECOVERY'
-      ? ui('Подтвердить, что tracking уже исправлен и начать проверку восстановления? AI узнает об исправлении сразу, но GREEN появится только после свежего реального conversion signal.','Bestätigen, dass das Tracking repariert wurde, und die Wiederherstellungsprüfung starten? Die AI berücksichtigt die Reparatur sofort; GREEN erscheint erst nach einem frischen echten Conversion-Signal.')
+      ? ui('Подтвердить, что tracking уже исправлен и начать проверку восстановления? KI узнает об исправлении сразу, но GREEN появится только после свежего реального conversion signal.','Bestätigen, dass das Tracking repariert wurde, und die Wiederherstellungsprüfung starten? Die KI berücksichtigt die Reparatur sofort; GREEN erscheint erst nach einem frischen echten Conversion-Signal.')
       : ui('Подтвердить, что tracking сейчас ненадёжен?','Bestätigen, dass das Tracking derzeit unzuverlässig ist?');
     if(!confirm(msg)) return;
 
@@ -3815,7 +4043,7 @@
     const comment=c?c.value.trim():'';
 
     if(!comment){
-      toast(ui('Сначала напишите заметку для AI.','Bitte zuerst eine Notiz für die AI eingeben.'));
+      toast(ui('Сначала напишите заметку для KI.','Bitte zuerst eine Notiz für die KI eingeben.'));
       if(c) c.focus();
       return;
     }
@@ -3925,15 +4153,15 @@
     if(AI_START_PENDING){toast(ui('Запрос на запуск уже отправлен.','Die Startanfrage wurde bereits gesendet.'));return;}
     AI_TERMINAL_RUN_ID=''; AI_RECOVERY_CHECKED_RUN_ID=''; AI_FINAL_REFRESH_DONE=false;
     if(!forceAdditional && !confirm(ui(
-      'Начать новый чистый AI-анализ с нуля? Сохранённые checkpoints остановленного run использоваться не будут. Новый запуск получит новый ID и после успешного завершения сохранится отдельной записью в истории.',
-      'Eine neue saubere AI-Analyse von vorn starten? Gespeicherte Checkpoints des gestoppten Laufs werden nicht verwendet. Der neue Start erhält eine neue ID und wird nach erfolgreichem Abschluss separat im Verlauf gespeichert.'
+      'Начать новый чистый KI-анализ с нуля? Сохранённые checkpoints остановленного run использоваться не будут. Новый запуск получит новый ID и после успешного завершения сохранится отдельной записью в истории.',
+      'Eine neue saubere KI-Analyse von vorn starten? Gespeicherte Checkpoints des gestoppten Laufs werden nicht verwendet. Der neue Start erhält eine neue ID und wird nach erfolgreichem Abschluss separat im Verlauf gespeichert.'
     ))) return;
 
     // V3.27: no full-screen blocking overlay. The phone stays usable while the small
     // server RPC creates a run_id; readiness and heavy work belong to the orchestrator.
     AI_START_PENDING=true;
     renderAiRunState((APP&&APP.ai)||{},(APP&&APP.owner_pipeline)||{});
-    toast(ui('Запрос на новый AI-анализ отправлен…','Anfrage für eine neue AI-Analyse gesendet…'));
+    toast(ui('Запрос на новый KI-анализ отправлен…','Anfrage für eine neue KI-Analyse gesendet…'));
     google.script.run
       .withSuccessHandler(res=>{
         AI_START_PENDING=false;
@@ -3947,13 +4175,13 @@
           return;
         }
         if(!res||res.ok===false){
-          if(res&&res.code==='INSUFFICIENT_CREDITS'){applyCreditResponse(res);toast((res&&res.message)||ui('Недостаточно Credits для нового AI-анализа.','Nicht genügend Credits für eine neue AI-Analyse.'));return;}
-          toast((res&&res.message)||ui('AI не запущен.','AI wurde nicht gestartet.'));
+          if(res&&res.code==='INSUFFICIENT_CREDITS'){applyCreditResponse(res);toast((res&&res.message)||ui('Недостаточно Credits для нового KI-анализа.','Nicht genügend Credits für eine neue KI-Analyse.'));return;}
+          toast((res&&res.message)||ui('KI не запущен.','KI wurde nicht gestartet.'));
           setTimeout(()=>loadData(false),300);
           return;
         }
         const id=String(res.run_id||'');
-        toast((res&&res.message)||ui('Новый AI-анализ создан.','Neue AI-Analyse erstellt.'));
+        toast((res&&res.message)||ui('Новый KI-анализ создан.','Neue KI-Analyse erstellt.'));
         if(APP){
           APP.ai=Object.assign({},APP.ai||{}, {current_run_id:id,run_status:String(res.status||'QUEUED'),current_run_stage:'QUEUED',busy:true,current_run_created_at:res.queued_at||''});
           APP.owner_pipeline=APP.owner_pipeline||{};
@@ -3992,9 +4220,9 @@
 
   function decisionGradeText(g){
     g=String(g||'').toUpperCase();
-    if(g==='OWNER_BUDGET_DECISION') return ui('💶 AI рекомендует · нужен ваш бюджетный выбор','💶 AI empfiehlt · Ihre Budgetentscheidung ist nötig');
+    if(g==='OWNER_BUDGET_DECISION') return ui('💶 KI рекомендует · нужен ваш бюджетный выбор','💶 KI empfiehlt · Ihre Budgetentscheidung ist nötig');
     if(g==='DIAGNOSTIC') return ui('🔎 Нужно проверить факт','🔎 Sachverhalt prüfen');
-    return ui('🟢 AI рекомендует сделать','🟢 AI empfiehlt Umsetzung');
+    return ui('🟢 KI рекомендует сделать','🟢 KI empfiehlt Umsetzung');
   }
 
   function recommendationOriginText(a){
