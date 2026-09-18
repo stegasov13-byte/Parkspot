@@ -1,0 +1,4 @@
+window.PARKSPOT_CONFIG = {
+  API_BASE_URL: "https://REPLACE-WITH-CLOUD-RUN-URL",
+  APP_NAME: "ParkSpot"
+};
