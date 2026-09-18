@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ParkSpot Owner Control Dashboard V3.51.0 HF14 · GitHub Pages + One-click Ads execution -->
+<!-- ParkSpot Owner Control Dashboard V3.51.0 HF18 · Premium UX + Performance -->
 <html>
 <head>
   <base target="_top">
@@ -198,12 +198,12 @@
     .brief-text{font-size:13px;line-height:1.45;margin-top:3px;color:#1e293b}
     .journal-list{display:grid;gap:11px;margin-top:12px}
     .journal-card{border:1px solid var(--line);border-radius:16px;background:#fff;padding:0;overflow:hidden}
-    .journal-summary{list-style:none;cursor:pointer;padding:13px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+    .journal-summary{list-style:none;cursor:pointer;padding:13px}
     .journal-summary::-webkit-details-marker{display:none}
     .journal-summary-main{min-width:0;display:block}
     .journal-summary-title{display:block;font-size:14px;font-weight:900;line-height:1.35;color:#0f172a;margin-top:5px}
     .journal-summary-action{display:block;font-size:12px;line-height:1.4;color:#475569;margin-top:4px}
-    .journal-summary:after{content:'›';font-size:22px;line-height:1;color:#94a3b8;margin-left:4px;transition:transform .15s ease}
+    .journal-summary:after{content:'›';font-size:22px;line-height:1;color:#94a3b8;transition:transform .15s ease}
     details.journal-card[open]>.journal-summary:after{transform:rotate(90deg)}
     .journal-details{padding:0 13px 13px;border-top:1px solid var(--line)}
     .journal-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
@@ -580,26 +580,72 @@
     .ki-archive-item{padding:9px 10px;border:1px solid var(--line);border-radius:11px;background:#fff;font-size:10.5px;color:#475569;line-height:1.4}
     .ki-archive-open{margin-top:6px;border:0;background:transparent;color:#2563eb;font-size:10px;font-weight:850;padding:0;cursor:pointer}
 
-    .forward-card{position:relative;background:#fff;overflow:hidden;padding:13px}
-    .forward-card-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
-    .forward-card-title{font-size:14px;font-weight:900;color:#0f172a}
-    .forward-status{font-size:9px;font-weight:900;padding:5px 7px;border-radius:999px;background:#f1f5f9;color:#475569;white-space:nowrap}
+    /* HF18 premium Forward Demand: status never competes with the period title. */
+    .forward-card{position:relative;background:#fff;overflow:visible;padding:14px;border-radius:17px;box-shadow:0 3px 14px rgba(15,23,42,.035)}
+    .forward-card-top{display:block;min-width:0}
+    .forward-card-title{font-size:15px;font-weight:920;color:#0f172a;line-height:1.2;white-space:nowrap}
+    .forward-status{display:inline-flex;align-items:center;max-width:100%;font-size:9.5px;font-weight:900;padding:5px 8px;border-radius:999px;background:#f1f5f9;color:#475569;white-space:nowrap;margin-top:8px;line-height:1.15}
+    .forward-status:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.75;margin-right:6px;flex:0 0 auto}
     .forward-status.action{background:#fff7ed;color:#9a3412}.forward-status.warning{background:#fff7ed;color:#b45309}.forward-status.ok{background:#ecfdf3;color:#166534}.forward-status.watch{background:#eff6ff;color:#1d4ed8}
-    .forward-attainment{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:10px}
-    .forward-attainment strong{font-size:29px;line-height:1;margin:0;letter-spacing:-.8px}
-    .forward-attainment small{font-size:9.5px;color:var(--muted);font-weight:750;text-align:right;line-height:1.3}
-    .forward-progress{height:7px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-top:8px}
+    .forward-attainment{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:13px}
+    .forward-attainment strong{font-size:31px;line-height:1;margin:0;letter-spacing:-.9px}
+    .forward-attainment small{font-size:9.5px;color:var(--muted);font-weight:780;text-align:right;line-height:1.28;max-width:82px}
+    .forward-progress{height:7px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-top:9px}
     .forward-progress i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#2563eb,#60a5fa)}
-    .forward-card-main{font-size:10.5px;color:#475569;line-height:1.45;margin-top:8px}
-    .forward-details{margin-top:8px;font-size:10px;color:#64748b}.forward-details summary{cursor:pointer;font-weight:800;color:#64748b}
+    .forward-card-main{font-size:10.5px;color:#475569;line-height:1.45;margin-top:9px}
+    .forward-details{margin-top:9px;font-size:10px;color:#64748b}.forward-details summary{cursor:pointer;font-weight:850;color:#64748b}
     .forward-summary{grid-template-columns:repeat(2,minmax(0,1fr))}
     .forward-summary>div{background:#f8fafc;border:1px solid var(--line)}
     .forward-summary>div b{font-size:22px;letter-spacing:-.4px}
     .forward-summary>div span{font-size:9.5px}
-    .fd-pace-hero{grid-column:1/-1!important;background:linear-gradient(135deg,#eff6ff,#eef2ff)!important;border-color:#bfdbfe!important;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+    .forward-summary>div:nth-child(2){grid-column:1/-1;background:#fff}
+    .forward-summary>div:nth-child(2) b{font-size:24px}
+    .fd-pace-hero{grid-column:1/-1!important;background:linear-gradient(135deg,#eff6ff,#eef2ff)!important;border-color:#bfdbfe!important;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center}
     .fd-pace-hero.urgent{background:linear-gradient(135deg,#fff7ed,#fff)!important;border-color:#fed7aa!important}
     .fd-pace-hero .fd-gap{font-size:10px;color:#64748b;margin-top:3px}
-    @media(max-width:520px){.ki-status-title{font-size:20px}.ki-chat-compose{grid-template-columns:minmax(0,1fr) 46px}.ki-send-btn{width:46px;height:46px}.ki-message{max-width:95%}}
+
+    /* HF18 changelog: date/status are one calm header; text gets the full card width. */
+    .journal-card{border-radius:18px;box-shadow:0 4px 18px rgba(15,23,42,.035);content-visibility:auto;contain-intrinsic-size:260px}
+    .journal-summary{position:relative;display:block;padding:15px 44px 15px 15px}
+    .journal-summary:after{position:absolute;right:15px;top:19px;margin:0}
+    .journal-summary-main{display:block;min-width:0}
+    .journal-summary-head{display:flex;align-items:center;justify-content:space-between;gap:9px;min-width:0}
+    .journal-summary-head .journal-date{min-width:0;font-size:13.5px}
+    .journal-summary-head .health-pill{flex:0 0 auto;font-size:10px;padding:5px 8px}
+    .journal-summary-title{font-size:15px;line-height:1.32;margin-top:10px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .journal-summary-action{font-size:11.5px;line-height:1.42;margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .journal-time{font-size:10.5px;margin-top:8px}
+    .journal-details{padding:0 15px 15px}
+
+    /* HF18 KI-Team: understandable mission cards instead of a technical matrix. */
+    .agent-flow{display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none;margin-top:12px;padding-bottom:2px}.agent-flow::-webkit-scrollbar{display:none}
+    .agent-flow-step{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;padding:7px 9px;border-radius:999px;background:#f8fafc;border:1px solid var(--line);font-size:9.5px;font-weight:850;color:#475569;white-space:nowrap}
+    .agent-flow-arrow{color:#94a3b8;font-size:12px;flex:0 0 auto}
+    .agent-stage-list{display:grid;gap:12px;margin-top:14px}
+    .agent-stage{border:1px solid var(--line);border-radius:17px;background:linear-gradient(180deg,#fff,#fbfdff);padding:12px;content-visibility:auto;contain-intrinsic-size:320px}
+    .agent-stage-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}
+    .agent-stage-title{font-size:12px;font-weight:920;color:#0f172a}
+    .agent-stage-count{font-size:9px;font-weight:850;color:#64748b;background:#f1f5f9;border-radius:999px;padding:4px 7px;white-space:nowrap}
+    .agent-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:0}
+    .agent-card{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;border:1px solid #e2e8f0;background:#fff;border-radius:14px;padding:11px;min-height:118px;box-shadow:0 3px 12px rgba(15,23,42,.025)}
+    .agent-icon{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#eff6ff,#eef2ff);font-size:16px}
+    .agent-content{min-width:0}
+    .agent-name{font-size:12px;font-weight:900;line-height:1.25;color:#0f172a}
+    .agent-mission{font-size:10.5px;color:#64748b;line-height:1.4;margin-top:4px}
+    .agent-foot{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:7px;border-top:1px solid #f1f5f9;padding-top:8px;margin-top:2px}
+    .agent-tech{font-size:9px;color:#64748b;line-height:1.2;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .agent-status{display:inline-flex;align-items:center;font-size:8.5px;font-weight:900;margin:0;color:#166534;background:#ecfdf3;border-radius:999px;padding:4px 6px;white-space:nowrap}
+    .agent-status.on-demand{color:#1d4ed8;background:#eff6ff}.agent-status.optional{color:#64748b;background:#f1f5f9}.agent-status.controlled{color:#7c2d12;background:#fff7ed}
+
+    /* Reduce layout work for long off-screen sections without hiding any content. */
+    .history-inside-ai,.ki-chat-card,#aiTeamCard,#parkingCalendar,#parkingPeaks{content-visibility:auto;contain-intrinsic-size:520px}
+
+    @media(max-width:520px){
+      .ki-status-title{font-size:20px}.ki-chat-compose{grid-template-columns:minmax(0,1fr) 46px}.ki-send-btn{width:46px;height:46px}.ki-message{max-width:95%}
+      .forward-card{padding:13px}.forward-card-title{font-size:14px}.forward-status{font-size:9px;padding:5px 7px}
+      .journal-summary{padding:14px 38px 14px 14px}.journal-summary:after{right:12px;top:18px}.journal-summary-head{align-items:flex-start}.journal-summary-head .journal-date{font-size:12.5px}.journal-summary-head .health-pill{font-size:9.5px}
+      .agent-grid{grid-template-columns:1fr}.agent-card{min-height:0}
+    }
 
 </style>
   <script src="./config.js"></script>
@@ -869,8 +915,10 @@
         <div class="section-title">KI-Verlauf · Changelog</div><div class="section-sub">Eine abgeschlossene tägliche KI-Analyse entspricht einem Eintrag. So bleibt nachvollziehbar, wie sich Einschätzung, Empfehlung und Maßnahmen von Tag zu Tag verändert haben. Details bleiben aufklappbar.</div><div id="journalContext" class="journal-context">—</div><div id="futureLogNote" class="future-log-note"></div><div id="dailyJournal" class="journal-list"></div><button id="journalMoreBtn" class="journal-more" style="display:none" onclick="showMoreJournal()">Mehr anzeigen</button>
       </section>
       <section class="card" id="aiTeamCard">
-        <div class="section-title">KI-Team</div><div class="section-sub">Übersicht der beteiligten Rollen. Das bedeutet nicht, dass für jede Rolle ein separater kostenpflichtiger KI-Aufruf erfolgt.</div>
-        <div class="agent-grid" id="agentTeamGrid"><div class="empty">—</div></div>
+        <div class="section-title">KI-Team · so arbeitet ParkSpot</div>
+        <div class="section-sub">Jede Rolle hat eine klare Aufgabe. Die Kette läuft von belastbaren Daten über Analyse und Entscheidung bis zur kontrollierten Umsetzung. Nicht jede Rolle entspricht einem separaten kostenpflichtigen KI-Aufruf.</div>
+        <div class="agent-flow" aria-label="ParkSpot Arbeitsablauf"><span class="agent-flow-step">▣ Daten</span><span class="agent-flow-arrow">→</span><span class="agent-flow-step">⌕ Analyse</span><span class="agent-flow-arrow">→</span><span class="agent-flow-step">✦ Entscheidung</span><span class="agent-flow-arrow">→</span><span class="agent-flow-step">✓ Kontrolle & Umsetzung</span></div>
+        <div class="agent-stage-list" id="agentTeamGrid"><div class="empty">—</div></div>
       </section>
     </div>
 
@@ -1476,8 +1524,16 @@
 
 
   const LOCAL_OWNER_SNAPSHOT_KEY='parkspot_owner_snapshot_v351_hf2';
+  let LOCAL_SNAPSHOT_TIMER=null;
   function saveLocalOwnerSnapshot(data){
     try{ if(data&&data.ok) localStorage.setItem(LOCAL_OWNER_SNAPSHOT_KEY,JSON.stringify(data)); }catch(e){}
+  }
+  function scheduleLocalOwnerSnapshot(data){
+    if(LOCAL_SNAPSHOT_TIMER)clearTimeout(LOCAL_SNAPSHOT_TIMER);
+    const snapshot=data;
+    const write=function(){LOCAL_SNAPSHOT_TIMER=null;if(snapshot===APP)saveLocalOwnerSnapshot(snapshot);};
+    if('requestIdleCallback' in window){requestIdleCallback(write,{timeout:1500});}
+    else LOCAL_SNAPSHOT_TIMER=setTimeout(write,250);
   }
   function restoreLocalOwnerSnapshot(){
     try{
@@ -1761,33 +1817,41 @@
     renderAdsExecution(APP.ads_execution || {});
     renderAiRunState(APP.ai || {},APP.owner_pipeline || {});
     renderTodayAiBrief(APP.today_ai_brief || {},APP.owner_pipeline || {});
+    // Fast first paint: render owner-critical blocks immediately. Heavy hidden-tab DOM is
+    // filled just after the browser gets a chance to paint the current view.
     renderBookingChannels(APP.booking_channels || {});
     renderOccupancyIntegrity(APP.occupancy_integrity || {});
-    initOccupancyBrowser(APP.occupancy_calendar || APP.chart30 || []);
-    initZoneDayBrowser(APP.occupancy_calendar || APP.chart30 || []);
     renderSystemHealth(APP.system_health || {});
-    renderMarketingSite(APP);
     renderForwardDemand(APP.forward_demand || {});
-    renderAgentTeam(APP.agent_registry || []);
     renderEconomicsBeta(APP.business_economics || {},APP.learning_calibration || {});
     renderOwnerSettings(APP.owner_settings || {});
     renderAI(APP.ai || {},APP.business_profile || {});
-    renderDailyJournal(APP.daily_journal || []);
-    renderClockGuard(APP.clock_guard || {});
     renderInboxMeta(APP.action_inbox || {});
     renderActions(APP.actions || []);
     renderApprovedActions(APP.approved_actions || []);
-    renderOwnerFeedback(APP.owner_feedback || []);
-    renderWhySignals(APP.investigation_signals || {});
-    renderAds(APP.ads || {});
     renderOwnerOverview(APP);
     renderBookingsApiState(APP.bookings_api || {});
     renderAiAuto(APP.background_system || {});
     renderBackgroundSystem(APP.background_system || {});
     renderServiceState();
     applyStaticLanguage();
-    saveLocalOwnerSnapshot(APP);
+    scheduleLocalOwnerSnapshot(APP);
     restoreWhyInvestigationState();
+    const renderRef=APP;
+    const deferred=function(){
+      if(APP!==renderRef)return;
+      initOccupancyBrowser(APP.occupancy_calendar || APP.chart30 || []);
+      initZoneDayBrowser(APP.occupancy_calendar || APP.chart30 || []);
+      renderMarketingSite(APP);
+      renderAgentTeam(APP.agent_registry || []);
+      renderDailyJournal(APP.daily_journal || []);
+      renderClockGuard(APP.clock_guard || {});
+      renderOwnerFeedback(APP.owner_feedback || []);
+      renderWhySignals(APP.investigation_signals || {});
+      renderAds(APP.ads || {});
+    };
+    if('requestIdleCallback' in window)requestIdleCallback(deferred,{timeout:350});
+    else setTimeout(deferred,50);
 
     const appRunId=String((APP.ai&&APP.ai.current_run_id)||'');
     const staleBusy=!!(APP.ai&&APP.ai.busy&&AI_TERMINAL_RUN_ID&&appRunId===AI_TERMINAL_RUN_ID);
@@ -2188,8 +2252,44 @@
 
 
   function renderAgentTeam(items){
-    const el=document.getElementById('agentTeamGrid');if(!el)return;const arr=Array.isArray(items)?items:[];
-    el.innerHTML=arr.length?arr.map(a=>`<div class="agent-card"><div class="agent-name">${escapeHtml(String(a.name||a.id||'—'))}</div><div class="agent-meta">${escapeHtml(String(a.executor||''))}<br>${escapeHtml(String(a.authority||''))}</div><div class="agent-status">${escapeHtml(String(a.status||'—'))}</div></div>`).join(''):`<div class="empty">${escapeHtml(ui('Команда ещё не загружена','Team noch nicht geladen'))}</div>`;
+    const el=document.getElementById('agentTeamGrid');if(!el)return;
+    const arr=Array.isArray(items)?items:[];
+    if(!arr.length){el.innerHTML=`<div class="empty">${escapeHtml(ui('Команда ещё не загружена','Team noch nicht geladen'))}</div>`;return;}
+    const meta={
+      DATA_INTEGRITY:{stage:'DATA',icon:'▣',name:'Datengrundlage',mission:'Führt Buchungen, Auslastung und Werbedaten zu belastbaren Fakten zusammen.',tech:'Deterministische Fakten'},
+      MEASUREMENT_GUARDIAN:{stage:'DATA',icon:'◎',name:'Messqualität',mission:'Prüft Tracking und stoppt starke Schlüsse, wenn Conversion-Signale nicht zuverlässig sind.',tech:'Code · Luna nur bei Anomalien'},
+      ECONOMICS:{stage:'DATA',icon:'€',name:'Wirtschaftlichkeit',mission:'Ordnet Werbekosten und Buchungswert in die wirtschaftlichen Grenzen des Eigentümers ein.',tech:'Deterministische Geschäftslogik'},
+      SEARCH_FORENSIC:{stage:'ANALYSE',icon:'⌕',name:'Such- & Anzeigenanalyse',mission:'Untersucht Suchbegriffe, Keywords, Auslieferung und Auffälligkeiten in Google Ads.',tech:'Luna / Sol bei relevantem Signal'},
+      FORWARD_DEMAND:{stage:'ANALYSE',icon:'↗',name:'Nachfrage- & Kapazitätsplanung',mission:'Berechnet 120 Tage voraus, wo Plätze fehlen und welches Buchungstempo dafür nötig ist.',tech:'120T-Mathematik · Sol Interpretation'},
+      DELIVERY_BIDDING:{stage:'ANALYSE',icon:'◫',name:'Auslieferung & Gebote',mission:'Prüft Reichweite, Budget, Rank und Gebotshebel und formuliert exakte Vorschläge.',tech:'Diagnostik · Sol bei Bedarf'},
+      CREATIVE:{stage:'ANALYSE',icon:'✎',name:'Anzeigen-Creative',mission:'Entwirft bei Bedarf konkrete Anzeigenvarianten, ohne sie selbst zu veröffentlichen.',tech:'GPT-5.6 Sol · bei Bedarf'},
+      LEARNING:{stage:'DECISION',icon:'↺',name:'Lernen aus Ergebnissen',mission:'Vergleicht frühere Maßnahmen mit ihrem messbaren Ergebnis und liefert Lernsignale.',tech:'Outcome Review · ereignisgesteuert'},
+      SENIOR:{stage:'DECISION',icon:'✦',name:'Senior Performance Director',mission:'Führt alle Belege zusammen und formuliert die strategische Empfehlung für den Eigentümer.',tech:'GPT-5.6 Sol'},
+      RISK:{stage:'DECISION',icon:'◇',name:'Risiko & Audit',mission:'Versucht die Empfehlung zu widerlegen und genehmigt, begrenzt oder blockiert sie.',tech:'Claude Fable 5.1'},
+      POLICY:{stage:'EXECUTION',icon:'⚑',name:'Sicherheitsregeln',mission:'Erzwingt harte Freigabe- und Sicherheitsgrenzen unabhängig von jeder KI-Empfehlung.',tech:'Deterministische Policy'},
+      EXECUTION:{stage:'EXECUTION',icon:'✓',name:'Google Ads Umsetzung',mission:'Führt ausschließlich exakt freigegebene Änderungen kontrolliert aus und prüft das Ergebnis.',tech:'Google Ads Script · kontrolliert'}
+    };
+    const stages=[
+      {id:'DATA',title:'1 · Daten & Vertrauen'},
+      {id:'ANALYSE',title:'2 · Analyse & Planung'},
+      {id:'DECISION',title:'3 · Lernen & Entscheidung'},
+      {id:'EXECUTION',title:'4 · Kontrolle & Umsetzung'}
+    ];
+    function statusView(raw){
+      const s=String(raw||'READY').toUpperCase();
+      if(s==='ON_DEMAND')return {text:'Bei Bedarf',cls:'on-demand'};
+      if(s==='OPTIONAL_OFF')return {text:'Optional aus',cls:'optional'};
+      if(s==='CONTROLLED')return {text:'Kontrolliert',cls:'controlled'};
+      if(s==='V1')return {text:'Aktiv',cls:''};
+      return {text:'Bereit',cls:''};
+    }
+    const byStage={DATA:[],ANALYSE:[],DECISION:[],EXECUTION:[]};
+    arr.forEach(function(a){const m=meta[String(a.id||'').toUpperCase()]||{stage:'ANALYSE',icon:'•',name:String(a.name||a.id||'Rolle'),mission:String(a.authority||''),tech:String(a.executor||'')};(byStage[m.stage]||byStage.ANALYSE).push({a:a,m:m});});
+    el.innerHTML=stages.map(function(stage){
+      const rows=byStage[stage.id]||[];if(!rows.length)return '';
+      const cards=rows.map(function(x){const st=statusView(x.a.status);return `<div class="agent-card"><div class="agent-icon">${escapeHtml(x.m.icon)}</div><div class="agent-content"><div class="agent-name">${escapeHtml(x.m.name)}</div><div class="agent-mission">${escapeHtml(x.m.mission)}</div></div><div class="agent-foot"><div class="agent-tech" title="${escapeHtml(x.m.tech)}">${escapeHtml(x.m.tech)}</div><span class="agent-status ${st.cls}">${escapeHtml(st.text)}</span></div></div>`;}).join('');
+      return `<div class="agent-stage"><div class="agent-stage-head"><div class="agent-stage-title">${escapeHtml(stage.title)}</div><span class="agent-stage-count">${rows.length} ${rows.length===1?'Rolle':'Rollen'}</span></div><div class="agent-grid">${cards}</div></div>`;
+    }).join('');
   }
   function renderEconomicsBeta(e,cal){
     e=e||{};cal=cal||{};const status=e.enabled?(val(e.status)+' · break-even CPA '+(isFiniteNum(e.break_even_cpa)?euro(e.break_even_cpa):'—')):ui('выключено','deaktiviert');
@@ -2973,7 +3073,11 @@
         ${deep?`<div class="journal-topics">${deep}</div>`:''}
         ${recs?`<div class="journal-recs"><div class="journal-label">${ui('Рекомендации этого анализа','Empfehlungen dieser Analyse')}</div>${recs}</div>`:''}
         <div class="journal-meta-tech">${escapeHtml([exportDate,l.run_id?('ID '+l.run_id):'',l.analysis_time||'',l.ads_data_date?(ui('Ads-данные за ','Ads-Daten vom ')+fmtDate(l.ads_data_date)):''].filter(Boolean).join(' · '))}</div>`;
-      return `<details class="journal-card"><summary class="journal-summary"><span class="journal-summary-main"><span class="journal-date">${fmtDate(l.analysis_date)} · ${escapeHtml(version)}</span><span class="journal-summary-title">${escapeHtml(cleanOwnerText(compactTitle))}</span><span class="journal-summary-action">${escapeHtml(cleanOwnerText(compactAction))}</span><span class="journal-time">${escapeHtml(l.analysis_time||'')}${dataDate}${runCount}</span></span><span class="health-pill ${healthCls}">${healthIcon} ${escapeHtml(h==='GREEN'?ui('Спокойно','Ruhig'):h==='RED'?ui('Требует внимания','Achtung'):ui('Наблюдать','Beobachten'))}</span></summary><div class="journal-details">
+      const titleClean=cleanOwnerText(compactTitle),actionClean=cleanOwnerText(compactAction);
+      const norm=s=>String(s||'').toLowerCase().replace(/[^a-zа-яёäöüß0-9]+/gi,' ').trim();
+      const nt=norm(titleClean),na=norm(actionClean);
+      const showAction=!!na&&na!==nt&&!nt.startsWith(na)&&!na.startsWith(nt);
+      return `<details class="journal-card"><summary class="journal-summary"><span class="journal-summary-main"><span class="journal-summary-head"><span class="journal-date">${fmtDate(l.analysis_date)} · ${escapeHtml(version)}</span><span class="health-pill ${healthCls}">${healthIcon} ${escapeHtml(h==='GREEN'?ui('Спокойно','Ruhig'):h==='RED'?ui('Требует внимания','Achtung'):ui('Наблюдать','Beobachten'))}</span></span><span class="journal-summary-title">${escapeHtml(titleClean)}</span>${showAction?`<span class="journal-summary-action">${escapeHtml(actionClean)}</span>`:''}<span class="journal-time">${escapeHtml(l.analysis_time||'')}${dataDate}${runCount}</span></span></summary><div class="journal-details">
         <div class="journal-owner-report">
           ${simpleText?`<div class="journal-block" style="margin-top:0"><div class="journal-label">${ui('Просто объяснено','Einfach erklärt')}</div><div class="journal-text">${escapeHtml(simpleText)}</div></div>`:''}
           ${actionText?`<div class="journal-action"><b>${ui('Что делать сегодня:','Was heute zu tun ist:')}</b> ${escapeHtml(actionText)}</div>`:''}
