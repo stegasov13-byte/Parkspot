@@ -29,6 +29,30 @@
     sessionStorage.removeItem(EXPIRES_KEY);
   }
 
+
+  function storeGatewaySession(data){
+    gatewayToken=String(data&&data.token||'');
+    const ttl=Math.max(60,Number(data&&data.expires_in_seconds||21600));
+    expiresAt=Date.now()+ttl*1000;
+    sessionStorage.setItem(TOKEN_KEY,gatewayToken);
+    sessionStorage.setItem(EXPIRES_KEY,String(expiresAt));
+  }
+
+  async function bootstrapData(lang){
+    if(!configured())throw new Error('Cloud-Run-API-URL ist in config.js noch nicht eingerichtet.');
+    const resp=await fetch(API_BASE+'/bootstrap',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({lang:String(lang||'de')})
+    });
+    const data=await resp.json().catch(()=>({}));
+    if(!resp.ok||!data.ok||!data.token){
+      throw new Error((data&&data.message)||'Dashboard-Start konnte nicht geladen werden.');
+    }
+    storeGatewaySession(data);
+    return data.result;
+  }
+
   async function ensureGatewaySession(){
     if(!configured()){
       throw new Error('Cloud-Run-API-URL ist in config.js noch nicht eingerichtet.');
@@ -47,15 +71,18 @@
       throw new Error((data&&data.message)||'Gateway-Sitzung konnte nicht gestartet werden.');
     }
 
-    gatewayToken=String(data.token||'');
-    const ttl=Math.max(60,Number(data.expires_in_seconds||21600));
-    expiresAt=Date.now()+ttl*1000;
-    sessionStorage.setItem(TOKEN_KEY,gatewayToken);
-    sessionStorage.setItem(EXPIRES_KEY,String(expiresAt));
+    storeGatewaySession(data);
     return true;
   }
 
   async function rpc(method,args,retry){
+    // HF18: on a brand-new browser session combine gateway session creation and the
+    // materialized owner snapshot into one network round-trip. Any bootstrap error
+    // safely falls back to the established /session + /rpc path.
+    if(String(method||'')==='getWebAppData'&&!tokenValid()&&retry!==false){
+      try{return await bootstrapData(Array.isArray(args)&&args.length?args[0]:'de');}
+      catch(e){clearGatewaySession();}
+    }
     await ensureGatewaySession();
 
     const resp=await fetch(API_BASE+'/rpc',{
